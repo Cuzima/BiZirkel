@@ -1,5 +1,8 @@
 <html>
+<head>
+	<title>BiZirkel</title>
+</head>
 <body>
-<h2>Hello World!</h2>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
