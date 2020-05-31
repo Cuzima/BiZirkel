@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class HelloWorldServlet
+ * Servlet implementation class rentServlet
  */
-@WebServlet("/hello")
-public class HelloWorldServlet extends HttpServlet {
+@WebServlet("/rent")
+public class rentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HelloWorldServlet() {
+    public rentServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +26,9 @@ public class HelloWorldServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.sendRedirect(request.getContextPath() + "/welcome.jsp");
+
+		request.setAttribute("page", "rent");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	/**
