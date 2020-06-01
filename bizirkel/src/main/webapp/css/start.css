@@ -1,0 +1,60 @@
+
+
+.responsive_map {
+height: 0;
+overflow: hidden;
+padding-bottom: 56%;
+position: relative;
+margin-bottom:20pt;
+}
+
+.responsive_map iframe {
+height: 100%;
+left: 0;
+position: absolute;
+top: 0;
+width: 100%;
+margin-left:auto;
+margin-right:auto;
+}
+
+
+
+/* das darunter von about page */
+
+
+ .aboutUsPic{
+        width:100%;
+        border-radius:2pt;
+    }
+
+
+    .grid-image {
+        
+        margin: 0;
+        padding: 0;
+        position: relative;
+        margin-top:12pt;
+    }
+
+
+    .grid-image #caption {
+        position: absolute;
+        top: 0em;
+        bottom: 0em;
+        right: 0em;
+        left: 0em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+    }
+
+    .grid-image .title {
+        text-transform: uppercase;
+        color: #F0FFF0;
+        line-height: 1;
+        text-align: center;
+        padding:3px;
+        border-radius:5px;
+    }

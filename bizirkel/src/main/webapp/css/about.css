@@ -1,0 +1,62 @@
+  .aboutUsPic{
+        width:100%;
+        border-radius:2pt;
+    }
+
+
+    .grid-image {
+        
+        margin: 0;
+        padding: 0;
+        position: relative;
+        margin-top:12pt;
+    }
+
+
+    .grid-image #caption {
+        position: absolute;
+        top: 0em;
+        bottom: 0em;
+        right: 0em;
+        left: 0em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+    }
+
+    .grid-image .title {
+        text-transform: uppercase;
+        color: #F0FFF0;
+        line-height: 1;
+        text-align: center;
+        padding:3px;
+        border-radius:5px;
+    }
+
+
+    #headingAboutUs{
+        margin-top:10px;
+        margin-bottom:10px;
+        text-align:center;
+        font-size:25pt;
+        text-transform:uppercase;
+        height:100%;
+        color:white;
+        
+    }
+
+    #quoteAndHistory{
+        text-align:center;
+        font-size:18pt;
+        vertical-align:middle;
+        color:white;
+        padding-top:12pt;
+        border-radius:5pt;
+    }
+
+    #rowConfig{
+        margin-left:0pt;
+        margin-right:0pt;
+        border-radius:2pt;
+    }

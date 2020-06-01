@@ -1,0 +1,28 @@
+ #images{
+        width:100%;
+        min-height:100px;
+        border-radius:5px;
+    }
+
+    #bikeName{
+        text-align:center;
+    }
+
+    #types{
+        font-weight:bold;
+    }
+
+    #text{
+        font-size:13pt;
+    }
+   
+
+    #button{
+       border: 1px solid black;
+       text-align:center;
+    }
+    #button:hover{
+        background: rgba(0, 0, 0, 0.1);
+    }
+   
+
