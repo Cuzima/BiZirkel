@@ -1,12 +1,13 @@
         #forLinks{
+			font-family: Poppins;
             text-decoration:none;
-            color:white;
+            color:black;
             text-transform:uppercase;
         }
 
         #forLinks:hover{
             text-decoration:none;
-            color:white; 
+            color:black; 
         }
 
         #header{
@@ -22,11 +23,9 @@
         }
 
         #header:hover{
-            
             font-size:12.5pt;
             transition: 0.3s;
             border-bottom: 4px solid #FFFFE0;
-            
         }
 
         #menuBar{

@@ -26,18 +26,14 @@
 #homeInfoContent {
 	border-radius: 10px;
 	margin-top: 20px;
-	-webkit-box-shadow: 0px 0px 36px -17px rgba(0, 0, 0, 0.83);
-	-moz-box-shadow: 0px 0px 36px -17px rgba(0, 0, 0, 0.83);
-	box-shadow: 0px 0px 36px -17px rgba(0, 0, 0, 0.83);
+	-webkit-box-shadow: 0px 0px 36px -17px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 0px 36px -17px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 0px 36px -17px rgba(0, 0, 0, 0.3);
 	color: black;
 }
 
 p {
 	color: grey
-}
-
-#btnReadMore{
-	margin-bottom: 15px;
 }
 
 h1{
@@ -56,13 +52,6 @@ h2{
 	color: darkslategray
 }
 
-#heading1{
-	font-family: Poppins;
-	font-size: 30;
-	font-weight: 500;
-	line-height: 1.1;
-	color: white
-}
 </style>
 <link rel="stylesheet" href="css/home.css">
 
@@ -74,6 +63,7 @@ h2{
 					<h1 id="heading1">Ihr Biker-Shop in Edingen-Neckarhausen</h1>
 					<p>Ihr Fachhändler für Trekking, Mountainbikes, Crossräder,
 						E-Bikes, Kinder- und Jugendräder</p>
+					<a class="btn btn-default btn-lg showcase-btn" style="margin-bottom: 15px">Über uns</a>
 
 				</div>
 			</div>
@@ -83,7 +73,7 @@ h2{
 	
 <div class="row">
 	<div class="col-md-1 col-sm-1"></div>
-	<div class="col col-10 bg-dark">
+	<div class="col col-10">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -122,7 +112,7 @@ h2{
 					<p>Ihr Fachhändler für Trekking, Mountainbikes, Crossräder,
 						E-Bikes, Kinder- und Jugendräder</p>
 
-					<a class="btn btn-default btn-lg showcase-btn" id="btnReadMore">Read More</a>
+					<a class="btn btn-default btn-lg showcase-btn" style="margin-bottom: 15px">Rent a Bike</a>
 				</div>
 			</div>
 			<div class="col-md-2 col-sm-2"></div>

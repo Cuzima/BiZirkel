@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<div class="container-fluid bg-dark text-light">
+	<div class="container-fluid bg-light text-dark">
 		<br>
 		<div class="container">
 			<div class="row">
