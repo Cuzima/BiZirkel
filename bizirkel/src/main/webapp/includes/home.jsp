@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -65,6 +66,9 @@ h2{
 	color: white
 }
 </style>
+=======
+<link rel="stylesheet" href="css/home.css">
+>>>>>>> refs/remotes/origin/jessica
 
 <section id="showcase">
 		<div class="row">

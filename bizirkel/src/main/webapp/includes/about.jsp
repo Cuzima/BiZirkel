@@ -1,77 +1,10 @@
-<style>
-
-    .aboutUsPic{
-        width:100%;
-        border-radius:2pt;
-    }
-
-
-    .grid-image {
-        
-        margin: 0;
-        padding: 0;
-        position: relative;
-        margin-top:12pt;
-    }
-
-
-    .grid-image #caption {
-        position: absolute;
-        top: 0em;
-        bottom: 0em;
-        right: 0em;
-        left: 0em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 1;
-    }
-
-    .grid-image .title {
-        text-transform: uppercase;
-        color: #F0FFF0;
-        line-height: 1;
-        text-align: center;
-        background: rgba(0, 0, 0, 0.6);
-        padding:3px;
-        border-radius:5px;
-    }
-
-
-    #headingAboutUs{
-        margin-top:10px;
-        margin-bottom:10px;
-        text-align:center;
-        font-size:25pt;
-        text-transform:uppercase;
-        height:100%;
-        color:white;
-        
-    }
-
-    #quoteAndHistory{
-        text-align:center;
-        font-size:18pt;
-        vertical-align:middle;
-        color:white;
-        padding-top:12pt;
-        border-radius:5pt;
-    }
-
-    #rowConfig{
-        margin-left:0pt;
-        margin-right:0pt;
-        border-radius:2pt;
-    }
-
-
-</style>
+<link rel="stylesheet" href="css/about.css">
 
     <div class="shadow mb-3">
         <div class="grid-image">
             <img src="img/aboutUsPic.png" class="aboutUsPic"></img>
             <div id="caption">
-                <h2 class='title'>BiZirkel - Über uns</h2>
+                <h2 class='title'>BiZirkel - &Uuml;ber uns</h2>
             </div>
         </div>
     </div>
@@ -82,8 +15,8 @@
         <div class ="row bg-dark" id="rowConfig">
             <div class="col col-12 col-lg-3 bg-dark" id="headingAboutUs">Unser Motto</div>  
                 <div class="col col-12 col-lg-9 bg-dark"><blockquote class="blockquote" id="quoteAndHistory">
-                    <p class="mb-0">Radfahren kommt dem Flug der Vögel am nächsten.</p>
-                    <footer class="blockquote-footer">Louis J. Halle, 1910 – 1998</footer>
+                    <p class="mb-0">Radfahren kommt dem Flug der V&ouml;gel am n&auml;chsten.</p>
+                    <footer class="blockquote-footer">Louis J. Halle, 1910 - 1998</footer>
                     </blockquote>
                     <br>
             </div>

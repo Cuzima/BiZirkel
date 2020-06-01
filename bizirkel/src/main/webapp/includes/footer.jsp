@@ -1,13 +1,4 @@
-
-<style>
-    .weatherAPI{
-        border:1px solid;
-        border-radius:10px;
-        border-color:#00537f;
-        text-align:right; margin:0px auto
-    }
-
-</style>
+<link rel="stylesheet" href="css/about.css">
 
 <footer class ="footer mt-auto py-3">
     <div class="container">
