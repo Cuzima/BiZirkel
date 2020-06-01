@@ -2,7 +2,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-faded" id="menuBar">
     
-        <a class="navbar-brand" href="?site=home" id="forLinks">
+        <a class="navbar-brand" href="home" id="forLinks">
             <img src="https://i.otto.de/i/otto/19124676?w=2500&h=1525" width="40" height="30" class="d-inline-block align-top" alt="">
             BiZirkel
         </a>
@@ -14,16 +14,16 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="menuBar">
                 <li class="nav-item" id=header>
-                    <a class="nav-link" href="?site=rentABike" id="forLinks">Rent a Bike</a>
+                    <a class="nav-link" href="rent" id="forLinks">Rent a Bike</a>
                 </li>
                 <li class="nav-item" id=header>
-                    <a class="nav-link" href="?site=start" id="forLinks" >Startpunkt</a>
+                    <a class="nav-link" href="start" id="forLinks" >Startpunkt</a>
                 </li>
                 <li class="nav-item" id=header>
-                    <a class="nav-link" href="?site=about" id="forLinks">Über uns</a>
+                    <a class="nav-link" href="about" id="forLinks">Über uns</a>
                 </li>
                 <li class="nav-item" id=header>
-                    <a class="nav-link" href="?site=impressum" id="forLinks">Impressum</a>
+                    <a class="nav-link" href="impressum" id="forLinks">Impressum</a>
                 </li>
             </ul>
         </div>
