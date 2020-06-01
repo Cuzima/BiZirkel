@@ -5,14 +5,12 @@
 
 
     .grid-image {
-        
         margin: 0;
         padding: 0;
         position: relative;
         margin-top:12pt;
     }
-
-
+    
     .grid-image #caption {
         position: absolute;
         top: 0em;

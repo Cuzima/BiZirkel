@@ -35,13 +35,13 @@
 	border-radius: 5px;
 }
 
-.grid-image {
+.grid-image-rent {
 	margin: 0;
 	padding: 0;
 	position: relative;
 }
 
-.grid-image #caption {
+.grid-image-rent #caption {
 	position: absolute;
 	top: 0em;
 	bottom: 0em;
@@ -57,34 +57,34 @@
 	transition: transform 0.3s ease;
 }
 
-.grid-image:hover #caption {
+.grid-image-rent:hover #caption {
 	opacity: 1;
 }
 
-.grid-image .bikeTitle {
+.grid-image-rent .bikeTitle {
 	text-transform: uppercase;
 	color: #F0FFF0;
 	line-height: 1;
 	text-align: center;
 }
 
-#caption:hover .grid-image {
+#caption:hover .grid-image-rent #images {
 	border-radius: 5px;
-	transition: 0.5s;
-	-webkit-transform: scale(1.1);
-	-moz-transform: scale(1.1);
-	-ms-transform: scale(1.1);
-	-o-transform: scale(1.1);
-	transform: scale(1.1);
-	-webkit-transition: all 0.3s linear;
-	-moz-transition: all 0.3s linear;
-	-ms-transition: all 0.3s linear;
-	-o-transition: all 0.3s linear;
-	transition: all 0.3s linear;
+	transition: 0.4s;
+	-webkit-transform: scale(1.05);
+	-moz-transform: scale(1.05);
+	-ms-transform: scale(1.05);
+	-o-transform: scale(1.05);
+	transform: scale(1.05);
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
 	-webkit-transform: scaleY(1);
 	-webkit-transform: scale(1.12);
 	-webkit-transform: scaleX(1);
 	-webkit-transform: scale(1.12);
-	-webkit-filter: blur(0.2px);
-	filter: blur(0.2px);
+	-webkit-filter: blur(2px);
+	filter: blur(2px);
 }

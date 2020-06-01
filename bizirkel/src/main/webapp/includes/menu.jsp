@@ -3,8 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-faded" id="menuBar">
     
         <a class="navbar-brand" href="home" id="forLinks">
-            <img src="https://i.otto.de/i/otto/19124676?w=2500&h=1525" width="40" height="30" class="d-inline-block align-top" alt="">
-            BiZirkel
+            <img src="img/iconbike.png" height="50" class="d-inline-block align-top" alt="" style="margin-top: -15px">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">

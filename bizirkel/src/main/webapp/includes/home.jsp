@@ -12,47 +12,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
 <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-<style>
-/* Für die zwei Grids innerhalb den zwei Grids unter dem Bild */
-#innerGrid {
-	margin-left: auto;
-	margin-right: auto;
-}
 
-#infotext {
-	text-align: center
-}
-
-#homeInfoContent {
-	border-radius: 10px;
-	margin-top: 20px;
-	-webkit-box-shadow: 0px 0px 36px -17px rgba(0, 0, 0, 0.3);
-	-moz-box-shadow: 0px 0px 36px -17px rgba(0, 0, 0, 0.3);
-	box-shadow: 0px 0px 36px -17px rgba(0, 0, 0, 0.3);
-	color: black;
-}
-
-p {
-	color: grey
-}
-
-h1{
-	font-family: Poppins;
-	font-size: 50;
-	font-weight: 500;
-	line-height: 1.1;
-	color: darkslategray
-}
-
-h2{
-	font-family: Poppins;
-	font-size: 30;
-	font-weight: 500;
-	line-height: 1.1;
-	color: darkslategray
-}
-
-</style>
 <link rel="stylesheet" href="css/home.css">
 
 <section id="showcase">
@@ -102,7 +62,7 @@ h2{
 	<div class="col-md-1 col-sm-1"></div>
 </div>
 
-<div class="container-fluid bg-white" id="homeInfoContent">
+<div class="container-fluid bg-white" id="content">
 	<section id="showcase">
 		<div class="row">
 			<div class="col-md-2 col-sm-2"></div>
@@ -112,7 +72,7 @@ h2{
 					<p>Ihr Fachhändler für Trekking, Mountainbikes, Crossräder,
 						E-Bikes, Kinder- und Jugendräder</p>
 
-					<a class="btn btn-default btn-lg showcase-btn" style="margin-bottom: 15px">Rent a Bike</a>
+					<a class="btn btn-default btn-lg showcase-btn" id="btnOnWhite" style="margin-bottom: 15px;">Rent a Bike</a>
 				</div>
 			</div>
 			<div class="col-md-2 col-sm-2"></div>
@@ -206,75 +166,3 @@ h2{
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.js"
-	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-	crossorigin="anonymous"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<script>
-	window.sr = ScrollReveal();
-	sr.reveal('.navbar', {
-		duration : 2000,
-		origin : 'bottom'
-	});
-	sr.reveal('.showcase-left', {
-		duration : 2000,
-		origin : 'left',
-		distance : '40px'
-	});
-	sr.reveal('.showcase-right', {
-		duration : 2200,
-		origin : 'right',
-		delay : 200,
-		distance : '40px'
-	});
-	sr.reveal('.showcase-btn', {
-		duration : 2000,
-		delay : 1000,
-		origin : 'bottom'
-	});
-	sr.reveal('.heading', {
-		duration : 2000,
-		origin : 'bottom'
-	});
-	sr.reveal('#testimonial div', {
-		duration : 2000,
-		origin : 'bottom'
-	});
-	sr.reveal('.info-left', {
-		duration : 2000,
-		origin : 'left',
-		distance : '40px',
-		viewFactor : 0.2
-	});
-	sr.reveal('.info-right', {
-		duration : 2200,
-		origin : 'right',
-		delay : 200,
-		distance : '40px',
-		viewFactor : 0.2
-	});
-</script>
-
-<script>
-	$(function() {
-		// Smooth Scrolling
-		$('a[href*="#"]:not([href="#"])').click(
-				function() {
-					if (location.pathname.replace(/^\//, '') == this.pathname
-							.replace(/^\//, '')
-							&& location.hostname == this.hostname) {
-						var target = $(this.hash);
-						target = target.length ? target : $('[name='
-								+ this.hash.slice(1) + ']');
-						if (target.length) {
-							$('html, body').animate({
-								scrollTop : target.offset().top
-							}, 1000);
-							return false;
-						}
-					}
-				});
-	});
-</script>
