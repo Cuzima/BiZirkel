@@ -38,7 +38,7 @@
   	<servlet-name>startServlet</servlet-name>
   	<display-name>startServlet</display-name>
   	<description></description>
-  	<servlet-class>bizirkel/startServlet</servlet-class>
+  	<servlet-class>bizirkel.startServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>impressumServlet</servlet-name>
