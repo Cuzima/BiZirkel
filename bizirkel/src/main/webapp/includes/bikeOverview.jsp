@@ -1,8 +1,12 @@
 
 <link rel="stylesheet" href="css/bikeOverview.css">
 
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
 <!-- Filter -->
-<div class="row">
+<div class="row showcase-btn2">
 	<div class="col col-1">
 		<svg class="bi bi-funnel" width="2em" height="2em" viewBox="0 0 16 16"
 			fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -215,13 +219,6 @@
 </div>
 
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
 <div class="container">
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" role="dialog">
@@ -246,6 +243,12 @@
 
 </div>
 
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <script>
-	$('#myModal').modal('show');
+	//$('#myModal').modal('show');
 </script>

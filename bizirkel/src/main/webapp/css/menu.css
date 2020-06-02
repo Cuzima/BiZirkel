@@ -1,42 +1,43 @@
-        #forLinks{
-			font-family: Poppins;
-            text-decoration:none;
-            color:black;
-            text-transform:uppercase;
-        }
+#forLinks {
+	font-family: Poppins;
+	text-decoration: none;
+	color: black;
+	text-transform: uppercase;
+	padding-bottom: 5pt;
+}
 
-        #forLinks:hover{
-            text-decoration:none;
-            color:black; 
-        }
+#forLinks:hover {
+	text-decoration: none;
+	color: black;
+}
 
-        #header{
-            text-align:center;
-            min-height:35pt;
-            background:none;
-            transition:0.2s;
-            margin-right:20px;
-            margin-left:20px;
-            padding-right:10px;
-            padding-left:10px;
-            margin-top:15px;
-        }
+#header {
+	text-align: center;
+	min-height: 35pt;
+	background: none;
+	transition: 0.2s;
+	margin-right: 20px;
+	margin-left: 20px;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin-top: 15px;
+	min-width: 120pt;
+}
 
-        #header:hover{
-            font-size:12.5pt;
-            transition: 0.3s;
-            border-bottom: 4px solid #FFFFE0;
-        }
+#header:hover {
+	transition: 0.5s;
+	background: lightgrey;
+	border-left: 1px solid black;
+}
 
-        #menuBar{
-            margin-bottom:10px;
-        }
+#menuBar {
+	margin-bottom: 10px;
+}
 
-        .navbar{
-            width:100%
-        }
+.navbar {
+	width: 100%
+}
 
-        .navbar-toggler{
-            background-color:grey;
-        }
-
+.navbar-toggler {
+	background-color: grey;
+}

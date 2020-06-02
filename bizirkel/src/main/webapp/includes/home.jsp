@@ -16,48 +16,50 @@
 <link rel="stylesheet" href="css/home.css">
 
 <section id="showcase">
-		<div class="row">
-			<div class="col-md-2 col-sm-2"></div>
-			<div class="col-md-8 col-sm-8">
-				<div class="heading" style="text-align: center">
-					<h1 id="heading1">Ihr Biker-Shop in Edingen-Neckarhausen</h1>
-					<p>Ihr Fachhändler für Trekking, Mountainbikes, Crossräder,
-						E-Bikes, Kinder- und Jugendräder</p>
-					<a class="btn btn-default btn-lg showcase-btn" style="margin-bottom: 15px">Über uns</a>
+	<div class="row">
+		<div class="col-md-2 col-sm-2"></div>
+		<div class="col-md-8 col-sm-8">
+			<div class="heading" style="text-align: center">
+				<h1 id="heading1">Ihr Biker-Shop in Edingen-Neckarhausen</h1>
+				<p>Ihr Fachhändler für Trekking, Mountainbikes, Crossräder,
+					E-Bikes, Kinder- und Jugendräder</p>
+				<a class="btn btn-default btn-lg showcase-btn"
+					style="margin-bottom: 15px">Über uns</a>
 
-				</div>
 			</div>
-			<div class="col-md-2 col-sm-2"></div>
 		</div>
-	</section>
-	
+		<div class="col-md-2 col-sm-2"></div>
+	</div>
+</section>
+
 <div class="row">
 	<div class="col-md-1 col-sm-1"></div>
 	<div class="col col-10">
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-			</ol>
+		<div class="showcase-left">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+				</ol>
 
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner">
-				<div class="item active">
-					<img src="img/desk.png" alt="Los Angeles" style="width: 100%;">
-				</div>
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="img/desk.png" alt="Los Angeles" style="width: 100%;">
+					</div>
 
-				<div class="item">
-					<img src="img/desk2.png" alt="Chicago" style="width: 100%;">
-				</div>
+					<div class="item">
+						<img src="img/desk2.png" alt="Chicago" style="width: 100%;">
+					</div>
 
-				<div class="item">
-					<img src="img/desk3.png" alt="New york" style="width: 100%;">
+					<div class="item">
+						<img src="img/desk3.png" alt="New york" style="width: 100%;">
+					</div>
 				</div>
 			</div>
 		</div>
-
 	</div>
 	<div class="col-md-1 col-sm-1"></div>
 </div>
@@ -72,7 +74,8 @@
 					<p>Ihr Fachhändler für Trekking, Mountainbikes, Crossräder,
 						E-Bikes, Kinder- und Jugendräder</p>
 
-					<a class="btn btn-default btn-lg showcase-btn" id="btnOnWhite" style="margin-bottom: 15px;">Rent a Bike</a>
+					<a class="btn btn-default btn-lg showcase-btn" id="btnOnWhite"
+						style="margin-bottom: 15px;">Rent a Bike</a>
 				</div>
 			</div>
 			<div class="col-md-2 col-sm-2"></div>

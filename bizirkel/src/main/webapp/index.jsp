@@ -6,17 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto%7CJosefin+Sans:100,300,400,500"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
-<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -26,17 +25,14 @@
 	
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <link
 	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto%7CJosefin+Sans:100,300,400,500"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
-<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+
 </head>
 <body>
 <style>
@@ -81,6 +77,7 @@ hr {
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 </style>
 
 	<div class="container-fluid bg-light text-dark">
@@ -98,6 +95,8 @@ hr {
 					<jsp:include page="includes/home.jsp"></jsp:include>
 				<%}else if(pages =="rent"){%>
 					<jsp:include page="includes/rent.jsp"></jsp:include>
+				<%}else if(pages =="bikeOverview"){%>
+					<jsp:include page="includes/bikeOverview.jsp"></jsp:include>
 				<%}else if(pages =="start"){%>
 					<jsp:include page="includes/start.jsp"></jsp:include>
 				<%}else if(pages =="about"){%>
@@ -105,7 +104,7 @@ hr {
 				<%}else if(pages =="impressum"){%>
 					<jsp:include page="includes/impressum.jsp"></jsp:include>
 				<%}else{%>
-					<jsp:include page="includes/bikeOverview.jsp"></jsp:include>
+					<jsp:include page="includes/home.jsp"></jsp:include>
 				<%}%>
 				</div>
 			</div>
@@ -125,6 +124,17 @@ hr {
 	crossorigin="anonymous"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 
 <script>
 	window.sr = ScrollReveal();
@@ -146,6 +156,11 @@ hr {
 	sr.reveal('.showcase-btn', {
 		duration : 2000,
 		delay : 1000,
+		origin : 'bottom'
+	});
+	sr.reveal('.showcase-btn2', {
+		duration : 2000,
+		delay : 500,
 		origin : 'bottom'
 	});
 	sr.reveal('.heading', {
