@@ -74,6 +74,13 @@ h2{
 #btnOnWhite:hover{
 	background-color: #e6e6e6;
 }
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
 </style>
 
 	<div class="container-fluid bg-light text-dark">
@@ -98,7 +105,7 @@ h2{
 				<%}else if(pages =="impressum"){%>
 					<jsp:include page="includes/impressum.jsp"></jsp:include>
 				<%}else{%>
-					<jsp:include page="includes/home.jsp"></jsp:include>
+					<jsp:include page="includes/bikeOverview.jsp"></jsp:include>
 				<%}%>
 				</div>
 			</div>
