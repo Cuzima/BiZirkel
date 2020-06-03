@@ -1,11 +1,17 @@
 package bizirkel;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import db.DaoController;
+import objects.Bike;
 
 /**
  * Servlet implementation class bikeOverviewServlet
@@ -27,6 +33,16 @@ public class bikeOverviewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		DaoController dao = new DaoController();
+		ArrayList<Bike> bikes = null;
+		try {
+			bikes = dao.getAllBikes();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("hallo", "haldlo");
+		request.setAttribute("bikes", bikes);
 		request.setAttribute("page", "bikeOverview");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

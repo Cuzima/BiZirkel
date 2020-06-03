@@ -1,9 +1,16 @@
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false" %>
 <link rel="stylesheet" href="css/bikeOverview.css">
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
+
+
+<%-- ${bikes[0].id}
+
+ <c:forEach items ="${bikes}" var="bike">${bike.id}</c:forEach>
+ --%>
 
 <!-- Filter -->
 <div class="row showcase-btn2">
@@ -44,7 +51,84 @@
 
 <!-- Bike Overview -->
 
+
 <div class="container-fluid bg-white" id="content">
+ <c:forEach items="${bikes}" var="bike">
+  <c:choose>
+    <c:when test="${(bike.id mod 2) == 0}">
+    <div class="row rowAdjust bg-light">
+    	
+   </c:when>
+    <c:otherwise>
+    	<div class="row rowAdjust">
+    </c:otherwise>
+</c:choose> 
+
+<!--  <div class="row rowAdjust">  -->
+		<div class="showcase-left">
+			<div class="col col-12 col-lg-6">
+				<img src="${bike.img}" id="images">
+			</div>
+			<div class="showcase-right col col-12 col-lg-6">
+				<div class="row">
+					<div class="col col-12" id="bikeName">
+						<h2>
+							${bike.name}
+							<h2>
+					</div>
+				</div>
+				<hr />
+				<div class="row">
+					<div class="col col-3 col-md-12 col-xl-3" id="types">
+						<h5>Typ</h5>
+					</div>
+					<div class="col col-9 col-md-12 col-xl-9" id="text"><h5>${bike.type}</h5></div>
+				</div>
+				<hr />
+				<div class="row">
+					<div class="col col-3 col-xl-3" id="types">
+						<h5>Beschreibung</h5>
+					</div>
+					<div class="col col-9 col-md-12 col-xl-9" id="text">
+						<h5>${bike.description}</h5>
+					</div>
+				</div>
+				<hr />
+
+				<div class="row mb-4 mt-4">
+					<div class="col col-6" id="types">
+						<h5>
+							${bike.price}&euro; / Tag
+							<h5>
+					</div>
+					<div class="col col-1"></div>
+					<a class="col col-4 btn btn-default btn-lg showcase-btn"> <svg
+							class="bi bi-bag" width="1em" height="1em" viewBox="0 0 16 16"
+							fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	                    <path fill-rule="evenodd"
+								d="M14 5H2v9a1 1 0 001 1h10a1 1 0 001-1V5zM1 4v10a2 2 0 002 2h10a2 2 0 002-2V4H1z"
+								clip-rule="evenodd" />
+	                    <path
+								d="M8 1.5A2.5 2.5 0 005.5 4h-1a3.5 3.5 0 117 0h-1A2.5 2.5 0 008 1.5z" />
+	                	</svg>
+					</a>
+
+					<div class="col col-1"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</c:forEach>
+</div>
+
+
+
+
+
+
+
+<!-- <div class="container-fluid bg-white" id="content">
 	<div class="row rowAdjust">
 		<div class="showcase-left">
 			<div class="col col-12 col-lg-6">
@@ -216,9 +300,11 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 
+
+<!-- Button -->
 <div class="container">
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" role="dialog">

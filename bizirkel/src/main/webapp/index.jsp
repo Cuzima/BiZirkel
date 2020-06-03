@@ -33,8 +33,6 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
 
-</head>
-<body>
 <style>
 p {
 	color: grey
@@ -79,6 +77,10 @@ hr {
 }
 
 </style>
+
+</head>
+<body>
+
 
 	<div class="container-fluid bg-light text-dark">
 		<br>

@@ -58,12 +58,6 @@
   	<description></description>
   	<servlet-class>bizirkel.cookieCartServlet</servlet-class>
   </servlet>
-  <servlet>
-  	<servlet-name>bikeOverviewServlet</servlet-name>
-  	<display-name>bikeOverviewServlet</display-name>
-  	<description></description>
-  	<servlet-class>bizirkel.bikeOverviewServlet</servlet-class>
-  </servlet>
   <servlet-mapping>
   	<servlet-name>HelloWorldServlet</servlet-name>
   	<url-pattern>/HelloWorldServlet</url-pattern>
@@ -99,9 +93,5 @@
   <servlet-mapping>
   	<servlet-name>cookieCartServlet</servlet-name>
   	<url-pattern>/cookieCartServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>bikeOverviewServlet</servlet-name>
-  	<url-pattern>/bikeOverviewServlet</url-pattern>
   </servlet-mapping>
 </web-app>
