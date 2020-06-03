@@ -27,23 +27,31 @@ public class cookieCartServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String cartitems = request.getParameter("cart");;
-		
-		Cookie cart = new Cookie("cart", cartitems);
-		response.addCookie(cart);
-		
-		//delete cookie
-		cart.setMaxAge(0);
-		response.addCookie(cart);
-		
-		//get cookie
-		Cookie cookies[]=request.getCookies();
-		cookies[0].getName();
-		cookies[0].getValue();
-		
-		request.setAttribute("decideCart", "true");
-		request.setAttribute("page", "impressum");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		String bikeid = request.getParameter("bikeid");
+		boolean bikeInsert = true;
+
+		for (Cookie bike : request.getCookies()) {
+			String abc = bike.getName();
+			if (bikeid.equals(abc)) {
+				int valueBike = Integer.parseInt(bike.getValue()) + 1;
+				String valueBikeNew = valueBike + "";
+				bike.setValue(valueBikeNew);
+				bikeInsert = false;
+				response.addCookie(bike);
+			}
+		}
+
+		if (bikeInsert) {
+			Cookie bike = new Cookie(bikeid, "1");
+			bike.setMaxAge(60 * 60 * 24);
+			response.addCookie(bike);
+		}
+
+		String setCk = (String) request.getParameter("setCk");
+		request.getSession().setAttribute("decide", setCk);
+		//request.setAttribute("decide", setCk);
+		request.setAttribute("page", "bikeOverview");
+		response.sendRedirect("bikeOverview");
 	}
 
 	/**

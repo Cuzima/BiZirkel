@@ -41,8 +41,9 @@ public class bikeOverviewServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("hallo", "haldlo");
+		
 		request.setAttribute("bikes", bikes);
+		request.setAttribute("decide", request.getSession().getAttribute("decide"));
 		request.setAttribute("page", "bikeOverview");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

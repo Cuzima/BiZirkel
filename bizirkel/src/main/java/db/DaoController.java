@@ -14,7 +14,7 @@ public class DaoController {
 		Dao dao = new Dao();
 		ArrayList<Bike> bikeList = new ArrayList<Bike>();
 		ResultSet rs = dao.getResult("SELECT * FROM bike");
-		
+		if(rs != null) {
 		while (rs.next()) {
 			Bike bike = new Bike();
 			bike.setId(rs.getString(1));
@@ -28,6 +28,7 @@ public class DaoController {
 
 			bikeList.add(bike);
 			
+		}
 		}
 
 		for (Bike bike : bikeList) {
