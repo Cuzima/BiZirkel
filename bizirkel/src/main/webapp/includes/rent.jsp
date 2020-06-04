@@ -15,7 +15,7 @@
 				<div class="row">
 					<div class="col col-12 col-md-6">
 						<div class="shadow mb-3 showcase-left" id="zoom">
-							<div id="caption" style="background: red">
+							<div id="caption">
 								<div class="grid-image-rent">
 								<a href="bikeOverview">
 									<img src="img/desk.png" id="images" alt=' '>
@@ -45,7 +45,7 @@
 				<div class="row">
 					<div class="col col-12 col-md-6">
 						<div class="shadow mb-3 showcase-btn2" id="zoom">
-							<div id="caption" style="background: red">
+							<div id="caption">
 								<div class="grid-image-rent">
 								<a href="bikeOverview">
 									<img src="img/desk3.png" id="images" alt=' '>
@@ -59,7 +59,7 @@
 					</div>
 					<div class="col col-12 col-md-6">
 						<div class="shadow mb-3 showcase-right" id="zoom">
-							<div id="caption" style="background: red">
+							<div id="caption">
 								<div class="grid-image-rent">
 								<a href="bikeOverview">
 									<img src="img/desk.png" id="images" alt=' '>

@@ -65,41 +65,38 @@
 </c:choose> 
 
 <!--  <div class="row rowAdjust">  -->
-		<div class="showcase-left">
-			<div class="col col-12 col-lg-6">
+			<div class=" showcase-left col col-12 col-lg-6">
 				<img src="${bike.img}" id="images">
 			</div>
 			<div class="showcase-right col col-12 col-lg-6">
 				<div class="row">
-					<div class="col col-12" id="bikeName">
-						<h2>
-							${bike.name}
-							<h2>
+					<div class="col col-12">
+						<h2 id="bikeName">${bike.name}</h2>
 					</div>
 				</div>
 				<hr />
 				<div class="row">
-					<div class="col col-3 col-md-12 col-xl-3" id="types">
-						<h5>Typ</h5>
+					<div class="col col-3 col-md-12 col-xl-3">
+						<h5 id="types">Typ</h5>
 					</div>
-					<div class="col col-9 col-md-12 col-xl-9" id="text"><h5>${bike.type}</h5></div>
+					<div class="col col-9 col-md-12 col-xl-9">
+						<h5 id="text">${bike.type}</h5>
+					</div>
 				</div>
 				<hr />
 				<div class="row">
-					<div class="col col-3 col-xl-3" id="types">
-						<h5>Beschreibung</h5>
+					<div class="col col-3 col-xl-3">
+						<h5 id="types">Beschreibung</h5>
 					</div>
-					<div class="col col-9 col-md-12 col-xl-9" id="text">
-						<h5>${bike.description}</h5>
+					<div class="col col-9 col-md-12 col-xl-9">
+						<h5 id="text">${bike.description}</h5>
 					</div>
 				</div>
 				<hr />
 
 				<div class="row mb-4 mt-4">
-					<div class="col col-6" id="types">
-						<h5>
-							${bike.price}&euro; / Tag
-							<h5>
+					<div class="col col-6">
+						<h5 id="types">${bike.price}&euro; / Tag</h5>
 					</div>
 					<div class="col col-1"></div>
 					<a class="col col-4 btn btn-default btn-lg showcase-btn"
@@ -118,7 +115,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	
 
 </c:forEach>
 </div>
@@ -151,10 +148,10 @@
 </div>
 
 
-<!-- <script
+ <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
 
 <%request.getSession().setAttribute("decide", "asd");%>
 <script>

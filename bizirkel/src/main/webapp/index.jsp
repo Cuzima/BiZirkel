@@ -106,7 +106,7 @@ hr {
 				<%}else if(pages =="impressum"){%>
 					<jsp:include page="includes/impressum.jsp"></jsp:include>
 				<%}else{%>
-					<jsp:include page="includes/home.jsp"></jsp:include>
+					<jsp:include page="includes/cart.jsp"></jsp:include>
 				<%}%>
 				</div>
 			</div>
