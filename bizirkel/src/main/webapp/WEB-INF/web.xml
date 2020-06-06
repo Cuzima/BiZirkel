@@ -58,6 +58,12 @@
   	<description></description>
   	<servlet-class>bizirkel.cookieCartServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>cmsServlet</servlet-name>
+  	<display-name>cmsServlet</display-name>
+  	<description></description>
+  	<servlet-class>bizirkel.cmsServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>HelloWorldServlet</servlet-name>
   	<url-pattern>/HelloWorldServlet</url-pattern>
@@ -93,5 +99,9 @@
   <servlet-mapping>
   	<servlet-name>cookieCartServlet</servlet-name>
   	<url-pattern>/cookieCartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>cmsServlet</servlet-name>
+  	<url-pattern>/cmsServlet</url-pattern>
   </servlet-mapping>
 </web-app>

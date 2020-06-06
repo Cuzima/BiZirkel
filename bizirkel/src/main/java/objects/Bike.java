@@ -2,7 +2,7 @@ package objects;
 
 public class Bike {
 
-	private String id;
+	private int id;
 	private String name;
 	private String description;
 	private String type;
@@ -10,16 +10,29 @@ public class Bike {
 	private int amount; 
 	private String category;
 	private String img;
+	private boolean ebike;
 	
 	
+	public boolean isEbike() {
+		return ebike;
+	}
+
+
+
+	public void setEbike(boolean ebike) {
+		this.ebike = ebike;
+	}
+
+
+
 	//Getter / Setter
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
 
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
