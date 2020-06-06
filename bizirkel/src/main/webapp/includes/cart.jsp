@@ -37,16 +37,11 @@
  
 </style>
 
-<!-- x button hinzufügen!! 
+<!-- x button hinzufÃ¼gen!! 
 gesamtsumme -->
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page isELIgnored="false" %>
 
-<c:forEach items="${cartbikes}" var="cartbike">
- 	Bike: ${cartbike.id} - Amount: ${cartbike.amount} - ${cartbike.name}<br>
-</c:forEach>
+
+
 
 <div class="container-fluid bg-white" id="content">
 <div class="row rowAdjust">
@@ -84,6 +79,10 @@ gesamtsumme -->
 </div>
 </div>
  --%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
 
 <link rel="stylesheet" href="css/cart.css">
 
@@ -91,8 +90,10 @@ gesamtsumme -->
 	<h2 class="showcase-btn2"
 		style="color: darkslategray; text-align: center">Warenkorb</h2>
 	<hr />
-	<div class="row">
-		<div class="showcase-left col col-2 col-md-1 my-auto mz-auto">
+
+	<c:forEach items="${cartbikes}" var="cartbike">
+		<div class="row">
+			<div class="showcase-left col col-2 col-md-1 my-auto mz-auto">
 				<div class="showcase-btn2  delete" type="button">
 					<div class="delete2">
 						<svg class="bi bi-x-circle text-dark" width="2em" height="2em"
@@ -106,43 +107,45 @@ gesamtsumme -->
 								d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
 						</svg>
 					</div>
-			</div>
-		</div>
-		<div class="showcase-left col col-10 col-md-3">
-			<img
-				src="https://www.kreidler.com/de/shop/image/cache/catalog/bikes-2020/122020881-43_Dice_26er_1.0_Street_Shimano_21g_679-1320x824.png"
-				id="images">
-		</div>
-		<div class="showcase-right col col-12  col-md-8">
-			<div class="row">
-				<div class="col col-12" id="bikeName">
-					<h2>Canyon Mountain Bike</h2>
-				</div>
-				<div class="col col-12">
-					<h5 class="types">Mountainbike</h5>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col col-6" id="columnHeight">
-					<h5 id="input1">25 &euro;</h5>
+			<div class="showcase-left col col-10 col-md-3">
+				<img src="${cartbike.img}" id="images">
+			</div>
+			<div class="showcase-right col col-12  col-md-8">
+				<div class="row">
+					<div class="col col-12" id="bikeName">
+						<h2>${cartbike.name}</h2>
+					</div>
+					<div class="col col-12">
+						<h5 class="types">${cartbike.type}</h5>
+					</div>
 				</div>
-				<div class="col col-6" id="columnHeight">
-					<input id="input2" class="inputField" placeholder="Menge" onkeyup="calculate()" style="width: 100px"></input>
+				<div class="row priceandamount">
+					<div class="col col-6" id="columnHeight">
+						<h5 id="input1" class="price">${cartbike.price}&euro;</h5>
+					</div>
+					<div class="col col-6" id="columnHeight">
+						<input id="input2" class="inputField inputamount"
+							value="${cartbike.amount}" placeholder="Menge"
+							onkeyup="calculate()" style="width: 100px"></input>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+
+	</c:forEach>
 	<hr />
 	<div class="row">
-		<div class="col col-0 col-lg-4"></div>
-		<div class="showcase-right col col-12 col-lg-8" id="totalAmount">
+		<div class="col col-0 col-lg-6"></div>
+		<div class="showcase-right col col-12 col-lg-6" id="totalAmount">
 			<div class="row">
 				<div class=" showcase-left col col-6">
 					<h3>Gesamtpreis</h3>
 				</div>
 				<form name="test">
 					<div class="showcase-right col col-6">
-						<h3 id="totalAmountNumber">&euro;</h3> 
+						<h3 id="totalAmountNumber"></h3>
 					</div>
 				</form>
 			</div>
@@ -199,7 +202,6 @@ gesamtsumme -->
 		</div>
 	</form>
 </div>
-
 <script>
 	function checkForm() {
 		var formError = '';
@@ -226,18 +228,45 @@ gesamtsumme -->
 		return true;
 	}
 </script>
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
-function calculate() {
- 	var input1 = (document.getElementById("input1").textContent).split(" ");
- 	var input2 = parseInt(document.querySelector("#input2").value);
- 	var erg=parseInt(input1[0])*input2;
- 	document.getElementById("totalAmountNumber").style.opacity = 1;
- 	var euro = document.getElementById("totalAmountNumber").textContent;
- 	document.getElementById("totalAmountNumber").textContent=String(erg)+euro;
-	
- }
+	function calculate() {
+		/*  	var input1 = (document.getElementById("input1").textContent).split(" ");
+		 var input2 = parseInt(document.querySelector("#input2").value);
+		 var erg=parseInt(input1[0])*input2;
+		 document.getElementById("totalAmountNumber").style.opacity = 1;
+		 var euro = document.getElementById("totalAmountNumber").textContent;
+		 document.getElementById("totalAmountNumber").textContent=String(erg)+euro; */
+
+		var totalprice = 0;
+		var totalamount = 0;
+		$(".priceandamount").each(function(index, element) {
+			var amount = $(this).find(".inputamount").val();
+			var price = $(this).find(".price").text();
+
+			amount = parseInt(amount);
+			price = parseFloat(price.substring(0, price.length - 1));
+
+			if (Number.isNaN(amount)) amount = 0;
+			totalprice += price * amount;
+		});
+		$('#totalAmountNumber').text(totalprice + "\u20ac");
+		
+		<% Cookie[] cookies = request.getCookies(); %>
+		<% for(int i = 0; i < cookies.length; i++){ %>
+		<% if(cookies[i].getName().equals("1")){ %>
+		<% Cookie cookie = new Cookie("1", "100"); %>
+		<% response.addCookie(cookie); }}%>
+		
+		<% Cookie cookie = new Cookie("1", "100"); %>
+		<% response.addCookie(cookie);%>
+		
+		
+	}
+
+	$(document).ready(function() {
+		calculate();
+	});
 </script>
-
-
