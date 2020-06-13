@@ -79,6 +79,7 @@ gesamtsumme -->
 </div>
 </div>
  --%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -86,17 +87,28 @@ gesamtsumme -->
 
 <link rel="stylesheet" href="css/cart.css">
 
+<!-- for the daterangepicker -->
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 <div class="container-fluid bg-white" id="content">
 	<h2 class="showcase-btn2"
 		style="color: darkslategray; text-align: center">Warenkorb</h2>
 	<hr />
-
 	<c:forEach items="${cartbikes}" var="cartbike">
-		<div class="row">
+		<div class="row bikeforcookie">
+			<input class="bikeid" type="hidden" value="${cartbike.id}" />
 			<div class="showcase-left col col-2 col-md-1 my-auto mz-auto">
 				<div class="showcase-btn2  delete" type="button">
 					<div class="delete2">
-						<svg class="bi bi-x-circle text-dark" width="2em" height="2em"
+						<svg onClick="deleteCartbike(${cartbike.id})"
+							class="bi bi-x-circle text-dark" width="2em" height="2em"
 							viewBox="0 0 16 16" fill="currentColor"
 							xmlns="http://www.w3.org/2000/svg">
 		  					<path fill-rule="evenodd"
@@ -121,7 +133,7 @@ gesamtsumme -->
 						<h5 class="types">${cartbike.type}</h5>
 					</div>
 				</div>
-				<div class="row priceandamount">
+				<div class="row">
 					<div class="col col-6" id="columnHeight">
 						<h5 id="input1" class="price">${cartbike.price}&euro;</h5>
 					</div>
@@ -165,6 +177,17 @@ gesamtsumme -->
 
 		</div>
 		<div class="row">
+		<div class="form-group col-12 showcase-btn2">
+			<c:choose>
+				<c:when test="${not empty startdate}">
+					<input type="text" class="form-control" name="daterange"
+						value="${startdate} - ${enddate}" style="width: 100%" />
+				</c:when>
+				<c:otherwise>
+					<input type="text" class="form-control" name="daterange" style="width: 100%" />
+				</c:otherwise>
+			</c:choose>
+			</div>
 			<div class=" form-group col-12 col-md-6 showcase-left">
 				<input type="text" class="form-control" placeholder="Nachname *"
 					name="lastName">
@@ -182,8 +205,7 @@ gesamtsumme -->
 				<input type="text" class="form-control" id="formGroupExampleInput"
 					placeholder="Handynummer *" name="number">
 			</div>
-
-			<div class="form-group col-12 showcase-left">
+			<div class="form-group col-12 showcase-btn2">
 				<textarea class="form-control" rows="5" id="comment"
 					placeholder="Was wollen Sie uns noch mitteilen?"></textarea>
 			</div>
@@ -228,21 +250,30 @@ gesamtsumme -->
 		return true;
 	}
 </script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
 <script>
-	function calculate() {
-		/*  	var input1 = (document.getElementById("input1").textContent).split(" ");
-		 var input2 = parseInt(document.querySelector("#input2").value);
-		 var erg=parseInt(input1[0])*input2;
-		 document.getElementById("totalAmountNumber").style.opacity = 1;
-		 var euro = document.getElementById("totalAmountNumber").textContent;
-		 document.getElementById("totalAmountNumber").textContent=String(erg)+euro; */
+$(function() {
+	$('input[name="daterange"]').daterangepicker(
+			{
+				opens : 'left'
+			},
+			function(start, end, label) {
+				var date = $('input[name="daterange"]').val()
+				var startdate = date.substring(0, 10);
+				var enddate = date.substring(13, 23);
+				document.cookie = "date=" + start.format('YYYY/MM/DD') + '' + end.format('YYYY/MM/DD');
+				console.log("A new date selection was made: "
+						+ start.format('YYYY-MM-DD') + ' to '
+						+ end.format('YYYY-MM-DD'));
 
+			});
+});
+	function calculate() {
 		var totalprice = 0;
 		var totalamount = 0;
-		$(".priceandamount").each(function(index, element) {
+		$(".bikeforcookie").each(function(index, element) {
 			var amount = $(this).find(".inputamount").val();
 			var price = $(this).find(".price").text();
 
@@ -251,22 +282,38 @@ gesamtsumme -->
 
 			if (Number.isNaN(amount)) amount = 0;
 			totalprice += price * amount;
+			
+			var bikeid = $(this).find(".bikeid").val();
+			document.cookie = bikeid+"=x";
+			document.cookie = bikeid+"="+amount;
 		});
 		$('#totalAmountNumber').text(totalprice + "\u20ac");
-		
-		<% Cookie[] cookies = request.getCookies(); %>
-		<% for(int i = 0; i < cookies.length; i++){ %>
-		<% if(cookies[i].getName().equals("1")){ %>
-		<% Cookie cookie = new Cookie("1", "100"); %>
-		<% response.addCookie(cookie); }}%>
-		
-		<% Cookie cookie = new Cookie("1", "100"); %>
-		<% response.addCookie(cookie);%>
-		
-		
+				
+	}
+	
+	function deleteCartbike(bikeid) {
+		document.cookie = bikeid+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+		location.reload();
 	}
 
 	$(document).ready(function() {
 		calculate();
+		console.log(getCookie("date"));
 	});
+	
+	function getCookie(cname) {
+		  var name = cname + "=";
+		  var decodedCookie = decodeURIComponent(document.cookie);
+		  var ca = decodedCookie.split(';');
+		  for(var i = 0; i <ca.length; i++) {
+		    var c = ca[i];
+		    while (c.charAt(0) == ' ') {
+		      c = c.substring(1);
+		    }
+		    if (c.indexOf(name) == 0) {
+		      return c.substring(name.length, c.length);
+		    }
+		  }
+		  return "";
+		}
 </script>

@@ -31,7 +31,7 @@
 						<div class="shadow mb-3 showcase-btn2" id="zoom">
 							<div id="caption">
 								<div class="grid-image-rent">
-								<a href="#">
+								<a href="bikeOverview?category=Roadbike">
 									<img src="img/desk2.png" id="images" alt=' '>
 									<div id="caption" type="button">
 										<h1 class="bikeTitle">Rennräder</h1>
@@ -61,7 +61,7 @@
 						<div class="shadow mb-3 showcase-right" id="zoom">
 							<div id="caption">
 								<div class="grid-image-rent">
-								<a href="bikeOverview">
+								<a href="bikeOverview?category=Childbike">
 									<img src="img/desk.png" id="images" alt=' '>
 									<div id="caption" type="button">
 										<h1 class="bikeTitle">Track</h1>

@@ -1,6 +1,10 @@
 package bizirkel;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -29,7 +33,7 @@ public class cookieCartServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String bikeid = request.getParameter("bikeid");
 		boolean bikeInsert = true;
-
+		
 		for (Cookie bike : request.getCookies()) {
 			String abc = bike.getName();
 			if (bikeid.equals(abc)) {
@@ -47,6 +51,26 @@ public class cookieCartServlet extends HttpServlet {
 			response.addCookie(bike);
 		}
 
+//		String date = request.getParameter("date");
+//		String startdateString = "";
+//		String enddateString = "";
+//		Date startdate;
+//		Date enddate;
+//		if(date != null) {
+//			startdateString = date.substring(0, 10);
+//			enddateString = date.substring(10, 20);
+//			try {
+//				startdate = new SimpleDateFormat("yyyy/MM/dd").parse(startdateString);
+//				enddate = new SimpleDateFormat("yyyy/MM/dd").parse(enddateString);
+//			} catch (ParseException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			Cookie dateCookie = new Cookie("date", date);
+//			dateCookie.setMaxAge(60 * 60 * 24);
+//			response.addCookie(dateCookie);
+//		}
+		
 		String setCk = (String) request.getParameter("setCk");
 		request.getSession().setAttribute("decide", setCk);
 		//request.setAttribute("decide", setCk);

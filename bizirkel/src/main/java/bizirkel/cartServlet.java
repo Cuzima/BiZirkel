@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import db.DaoController;
 import objects.Bike;
+import utils.DateHelper;
 
 /**
  * Servlet implementation class cartServlet
@@ -50,10 +51,14 @@ public class cartServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
+		
+		String dateString = "";
+		String startdateString = "";
+		String enddateString = "";
 		if (bikesCookie != null) {
-			for (Cookie bikeCookie : bikesCookie) {
+			for (Cookie bikeCookie : bikesCookie) { 
 				try {
+					if(bikeCookie.getName().equals("date")) dateString = bikeCookie.getValue();
 					int bikeid = Integer.parseInt(bikeCookie.getName());
 					String bikeamount = bikeCookie.getValue();
 					for (Bike bike : bikes) {
@@ -70,7 +75,14 @@ public class cartServlet extends HttpServlet {
 				}
 			}
 		}
-
+		if(dateString != "") {
+			//20/20/2020
+			startdateString = dateString.substring(0,10);
+			enddateString = dateString.substring(10,20);
+			request.setAttribute("startdate", DateHelper.changeDate(startdateString));
+			request.setAttribute("enddate", DateHelper.changeDate(enddateString));
+		}
+		
 		request.setAttribute("cartbikes", resultbikes);
 		request.setAttribute("page", "cart");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
