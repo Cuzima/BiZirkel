@@ -1,0 +1,68 @@
+#images {
+	width: 100%;
+	min-height: 100px;
+	border-radius: 5px;
+}
+
+#bikeName {
+	text-align: center;
+}
+
+#date{
+	margin:auto;
+}
+
+.types {
+	color: lightgrey;
+	text-align: center;
+	margin-top: -5pt;
+}
+
+#button {
+	border: 1px solid black;
+	text-align: center;
+}
+
+#button:hover {
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.rowAdjust {
+	margin-top: 10px;
+}
+
+.inputField {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+#columnHeight {
+	margin-top: 20px;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+.delete {
+	padding-right: 5pt;
+	padding-top: 5pt;
+}
+
+#totalAmount {
+	text-align: center;
+	color: darkslategray;
+}
+
+
+.delete2 {
+	width: 2em;
+	height: 2em;
+	border-radius: 15px;
+}
+
+.delete2:hover {
+	background: lightgrey;
+}
+
+/* #totalAmountNumber{
+	opacity:0;
+} */

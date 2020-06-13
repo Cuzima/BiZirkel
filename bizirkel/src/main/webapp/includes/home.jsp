@@ -23,7 +23,7 @@
 				<h1 id="heading1">Ihr Biker-Shop in Edingen-Neckarhausen</h1>
 				<p>Ihr Fachhändler für Trekking, Mountainbikes, Crossräder,
 					E-Bikes, Kinder- und Jugendräder</p>
-				<a class="btn btn-default btn-lg showcase-btn"
+				<a href="about"class="btn btn-default btn-lg showcase-btn"
 					style="margin-bottom: 15px">Über uns</a>
 
 			</div>
@@ -74,7 +74,7 @@
 					<p>Ihr Fachhändler für Trekking, Mountainbikes, Crossräder,
 						E-Bikes, Kinder- und Jugendräder</p>
 
-					<a class="btn btn-default btn-lg showcase-btn" id="btnOnWhite"
+					<a href="rent" class="btn btn-default btn-lg showcase-btn" id="btnOnWhite"
 						style="margin-bottom: 15px;">Rent a Bike</a>
 				</div>
 			</div>
@@ -139,33 +139,18 @@
 			<div class="col-md-4 col-sm-4"></div>
 			<div class="col-md-8 col-sm-8">
 				<div class="showcase-right" style="text-align: center">
-					<h2>Werkstattservice</h2>
-					<p>Wir bieten Ihnen nicht nur den Verkauf sondern auch
-						Reparatur- und Werkstatt-Service an. Vereinbaren Sie gleich einen
-						Termin um Ihr Fahrrad durchchecken zu lassen. Ob Inspektion,
-						Wartung oder ein kleinerer Service, wir bemühen uns alle Arbeiten
-						an Deinem Fahrrad professionell, preiswert und möglichst in kurzer
-						Zeit zu absolvieren.</p>
+					<h2>Unabhängig und mobil</h2>
+					<p>Eine gemütliche Tour durch die Stadt oder die Weinberge mit einem City-;Trekking- oder Elektrofahrrad? Oder doch eine rasante Tour durch den Pfälzerwald mit einem 
+						Mountainbike?<br>
+						Hier finden Sie das perfekte Rad!<br>
+						Sie haben die Wahl aus verschiedensten Rädern. Egal ob einfache und gemütliche Radreise mit unseren City-Bikes, oder herausfordernde Trails im Pfälzer Wald, 
+						mit hochwertigen Hardtail und Mountainbikes, kommen Sie überall hin. Die Bosch-Motoren der E-Bikes sorgen für einen stetigen Rückenwind. 
+						Werfen Sie einen Blick in unsere große Auswahl an Leihräder!
+					</p>
 				</div>
 			</div>
 		</div>
 	</section>
-	<section id="showcase">
-		<div class="row">
-			<div class="col-md-8 col-sm-8">
-				<div class="showcase-left" style="text-align: center">
-					<h2>Rent a Bike</h2>
-					<p>Google Home voice-activated speaker.consectetur adipisicing
-						elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-						aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-						laboris nisi ut aliquip ex ea commodo consequat</p>
-				</div>
-			</div>
-
-			<div class="col-md-4 col-sm-4"></div>
-		</div>
-	</section>
-
 </div>
 
 

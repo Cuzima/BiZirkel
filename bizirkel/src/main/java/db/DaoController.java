@@ -1,6 +1,7 @@
 package db;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -189,4 +190,82 @@ public class DaoController {
 //			dao.closeTransaktion();
 //		return reservationList;
 //	}
+	
+	public int getReservationId()throws SQLException, InterruptedException, ParseException {
+		ArrayList<Reservation> reservationId = new ArrayList<Reservation>();
+		try (Connection con = Dao.getInstance().getConnection()) {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT Max(id) FROM reservation");
+
+			while (rs.next()) {
+				Reservation reservation= new Reservation();
+				reservation.setId(rs.getInt(1));
+				reservationId.add(reservation);
+			}
+
+			int id = 0;
+			for (Reservation reservation : reservationId) {
+				id = reservation.getId();
+			}
+
+			return id;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	} 
+	
+	public void setReservation(int id, Date startDate, Date endDate, String email, String firstName, String lastName)throws SQLException, InterruptedException, ParseException {
+		
+		try (Connection con = Dao.getInstance().getConnection()) {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("INSERT INTO RESERVATION(id, startdate, enddate, email, name, surname)" + 
+					"VALUES('"+id+"', '"+startDate+"', '"+endDate+"', '"+email+"', '"+firstName+"', '"+lastName+"')");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	public int getReservationItemId()throws SQLException, InterruptedException, ParseException {
+		ArrayList<Reservation> reservationId = new ArrayList<Reservation>();
+		try (Connection con = Dao.getInstance().getConnection()) {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT Max(id) FROM reservationitem");
+
+			while (rs.next()) {
+				Reservation reservation= new Reservation();
+				reservation.setId(rs.getInt(1));
+				reservationId.add(reservation);
+			}
+
+			int id = 0;
+			for (Reservation reservation : reservationId) {
+				id = reservation.getId();
+			}
+
+			return id;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	} 
+	
+	public void setReservationItem(int id, int reservationId, int bikeId, int amount)throws SQLException, InterruptedException, ParseException {
+		
+		try (Connection con = Dao.getInstance().getConnection()) {
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery("INSERT INTO RESERVATIONITEM(id, reservationid, bikeid, amount)" + 
+					"VALUES('"+id+"', '"+reservationId+"', '"+bikeId+"', '"+amount+"')");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	
 }

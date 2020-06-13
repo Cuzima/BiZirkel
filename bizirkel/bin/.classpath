@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="lib" path="C:/Users/Meike/Downloads/mchange-commons-java-0.2.19.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Meike/Downloads/c3p0-0.9.5.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Meike/Downloads/c3p0-oracle-thin-extras-0.9.5.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Meike/Downloads/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Meike/Downloads/javax.mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Meike/Downloads/activation.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

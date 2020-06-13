@@ -1,38 +1,49 @@
-<link rel="stylesheet" href="css/impressum.css">
-
-    <div class="shadow mb-3">
-        <div class="grid-image">
-            <img src="img/aboutUsPic.png" class="aboutUsPic"></img>
-            <div id="caption">
-                <h2 class='title'>Impressum</h2>
+<div class="container-fluid bg-white" id="content">
+    <section id="showcase">
+        <div class="row">
+            <div class="col-12">
+                <div class="showcase-btn" style="text-align: center">
+                     <h1> <img src="img/logoOhneSchrift.png" height="60px"></img> &nbsp;Impressum</h1>
+                </div>
             </div>
         </div>
-    </div>
-    
-
-
-    <div class="shadow mb-3">
-        <div class ="row bg-dark" id="rowConfig">
-            <div class="col col-12 bg-dark" id="border">
-                <div class="impressum">
-                    <p class="heading">Anbieter:<br></p>
-                    <p>Max Mustermann<br></p>
-                    <p>Musterstraße 1<br></p> 
-                    <p>80999 München</p>
-                <p> </p>
-                <p class="heading">Kontakt:<br></p>
+    </section>
+<section id="showcase">
+        <div class="row bg-light">
+            <div class="col-12">
+                <div class="showcase-left" style="text-align: center">
+                    <h2>Anbieter</h2>
+                     <p>Meikel Vielhauer und Jessica Binder<br></p>
+                    <p>Albert-Schweitzer-Straße 27<br></p> 
+                    <p>68535 Edingen-Neckarhausen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="showcase">
+        <div class="row ">
+            <div class="col-12">
+                <div class="showcase-right" style="text-align: center">
+                    <h2>Kontakt</h2>
                     <p>Telefon: 089/1234567-8<br></p>
                     <p>Telefax: 089/1234567-9<br></p> 
-                    <p>E-Mail: mail@mustermann.de</p>
-                    <p>Website: www.mustermann.de</p>
-                <p> </p>
-                <p class="heading">Bei redaktionellen Inhalten:</p>
-                <p>Verantwortlich nach § 55 Abs.2 RStV<br></p>
-                    <p>Moritz Schreiberling<br> </p> 
-                    <p>Musterstraße 2<br> </p> 
-                    <p>80999 München</p>
+                    <p>E-Mail: bizirkelofficial@gmail.de</p>
+                    <p>Website: www.bizirkel.de</p>
                 </div>
-            </div>  
+            </div>
         </div>
-    </div>
-    
+    </section>
+    <section id="showcase">
+        <div class="row bg-light">
+            <div class="col-12">
+                <div class="showcase-left" style="text-align: center">
+                    <h2>Bei redaktionellen Inhalten:</h2>
+                    <p>Verantwortlich nach § 55 Abs.2 RStV<br></p>
+                    <p>Meikel Vielhauer und Jessica Binder<br> </p> 
+                    <p>Albert-Schweitzer-Straße 27<br></p> 
+                    <p>68535 Edingen-Neckarhausen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

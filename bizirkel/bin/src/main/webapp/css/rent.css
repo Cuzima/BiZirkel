@@ -1,0 +1,90 @@
+#innerGrid {
+	margin-left: auto;
+	margin-right: auto;
+	color: white;
+}
+
+#innerGridHeading {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	color: black;
+}
+
+#chooseGrid {
+	margin-left: auto;
+	margin-right: auto;
+	color: white;
+}
+
+#images {
+	width: 100%;
+	min-height: 100px;
+	border-radius: 5px;
+	transition: transform .5s ease;
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+	z-index: 1;
+}
+
+#zoom {
+	overflow: hidden;
+	border-radius: 5px;
+}
+
+.grid-image-rent {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+.grid-image-rent #caption {
+	position: absolute;
+	top: 0em;
+	bottom: 0em;
+	right: 0em;
+	left: 0em;
+	background: rgba(0, 0, 0, 0.6);
+	color: #CDCDC1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 300ms ease;
+	transition: transform 0.3s ease;
+}
+
+.grid-image-rent:hover #caption {
+	opacity: 1;
+}
+
+.grid-image-rent .bikeTitle {
+	text-transform: uppercase;
+	color: #F0FFF0;
+	line-height: 1;
+	text-align: center;
+}
+
+#caption:hover .grid-image-rent #images {
+	border-radius: 5px;
+	transition: 0.4s;
+	-webkit-transform: scale(1.05);
+	-moz-transform: scale(1.05);
+	-ms-transform: scale(1.05);
+	-o-transform: scale(1.05);
+	transform: scale(1.05);
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+	-webkit-transform: scaleY(1);
+	-webkit-transform: scale(1.12);
+	-webkit-transform: scaleX(1);
+	-webkit-transform: scale(1.12);
+	-webkit-filter: blur(2px);
+	filter: blur(2px);
+}
