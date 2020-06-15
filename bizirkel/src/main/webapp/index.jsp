@@ -4,7 +4,9 @@
 <title>BiZirkel</title>
 <meta charset="UTF-8">
 <meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<!-- <meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link
@@ -85,6 +87,10 @@ input {
 	border: 1px solid #ccc;
 	border-radius: 5px;
 	text-align: center
+}
+
+.paddingRow {
+	padding: 20px;
 }
 </style>
 
@@ -188,6 +194,18 @@ input {
 			origin : 'right',
 			delay : 200,
 			distance : '40px'
+		});
+		sr.reveal('.showcase-bottom', {
+			duration : 2000,
+			origin : 'bottom',
+			delay : 200,
+			distance : '20px'
+		});
+		sr.reveal('.showcase-top', {
+			duration : 2000,
+			origin : 'top',
+			delay : 200,
+			distance : '20px'
 		});
 		sr.reveal('.showcase-btn', {
 			duration : 2000,

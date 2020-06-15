@@ -1,7 +1,7 @@
 
 <div class="container-fluid bg-white" id="content">
 	<section id="showcase">
-		<div class="row">
+		<div class="row paddingRow">
 			<div class="col-12">
 				<div class="showcase-btn mt-5 mb-5 " style="text-align: center">
 					 <h1> <img src="img/logoOhneSchrift.png" height="60px"></img> &nbsp; &Uuml;ber uns - BiZirkel</h1>
@@ -29,7 +29,7 @@
 		</div>
 	</section>
 	<section id="showcase">
-		<div class="row ">
+		<div class="row" style="padding-bottom: 20px;">
 			<div class="col-12">
 				<div class="showcase-right" style="text-align: center">
 					<p><br></p>
@@ -46,7 +46,7 @@
 		</div>
 	</section>
 	<section id="showcase">
-		<div class="row bg-light">
+		<div class="row bg-light" style="padding-bottom: 20px;">
 			<div class="col-12">
 				<div class="showcase-left" style="text-align: center">
 					<p><br></p>
@@ -62,7 +62,7 @@
 		</div>
 	</section>
 	<section id="showcase">
-		<div class="row ">
+		<div class="row" style="padding-bottom: 20px;">
 			<div class="col-12">
 				<div class="showcase-right" style="text-align: center">
 				<p><br></p>

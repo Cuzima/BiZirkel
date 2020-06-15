@@ -19,16 +19,16 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Meike/Downloads/mchange-commons-java-0.2.19.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Meike/Downloads/c3p0-0.9.5.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Meike/Downloads/c3p0-oracle-thin-extras-0.9.5.5.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/BiZirkel/activation.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/BiZirkel/c3p0-0.9.5.5.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/BiZirkel/c3p0-oracle-thin-extras-0.9.5.5.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/BiZirkel/javax.mail.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/BiZirkel/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/BiZirkel/mchange-commons-java-0.2.19.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Meike/Downloads/mail.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Meike/Downloads/javax.mail.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Meike/Downloads/activation.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

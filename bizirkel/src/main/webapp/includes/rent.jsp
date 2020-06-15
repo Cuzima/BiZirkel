@@ -62,9 +62,9 @@
 							<div id="caption">
 								<div class="grid-image-rent">
 								<a href="bikeOverview?category=Childbike">
-									<img src="img/desk.png" id="images" alt=' '>
+									<img src="img/desk4.png" id="images" alt=' '>
 									<div id="caption" type="button">
-										<h1 class="bikeTitle">Track</h1>
+										<h1 class="bikeTitle">Kids</h1>
 									</div>
 								</a>
 								</div>

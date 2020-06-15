@@ -3,6 +3,7 @@ package bizirkel;
 import java.io.*;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,8 @@ import javax.servlet.http.*;
 import db.DaoController;
 import objects.Mail;
 import objects.Reservation;
+import utils.DateHelper;
+import utils.MailHelper;
 
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -56,20 +59,38 @@ public class MailServlet extends HttpServlet {
 	
 //		SetReservationId()
 		
-		//startDate aus cockie
-		//endDate aus cockie
 		String bikeName = request.getParameter("name");
+		String bikeId=request.getParameter("bikeId");
 		String price=request.getParameter("price");
 		String amount=request.getParameter("amount");
+	
 		String totalPrice = request.getParameter("totalPrice");
+		
 		String[] bikeNames = bikeName.split(";;");
 		String[] bikePrices = price.split(";;");
+		
+		String[] bikeIds = bikeId.split(";;");
 		String[] bikeAmounts=amount.split(";;");
+		int[] intbikeIds = MailHelper.parseToInt(bikeIds);
+		int[] intBikeAmounts = MailHelper.parseToInt(bikeAmounts);
 		
 		String firstName=request.getParameter("firstName");
 		String lastName=request.getParameter("lastName"); 
 	    String phone=request.getParameter("number");
 	    String note=request.getParameter("note");
+	    String email=request.getParameter("email");  
+	    
+	   
+	    String daterange=request.getParameter("date");
+	    String []date=daterange.split(" ");
+	    System.out.println(date[0]);
+	    System.out.println(date[2]);
+	    String newStartDate = DateHelper.changeDateForInsert(date[0]);
+	    String newEndDate=DateHelper.changeDateForInsert(date[2]);
+	    
+	    System.out.println("Startdatum Neu: "+ newStartDate );
+	    System.out.println("Enddatum Neu: "+ newEndDate );
+	    
 		
 		System.out.println("Vorname "+firstName);
 		System.out.println("Nachname: " + lastName);
@@ -77,18 +98,20 @@ public class MailServlet extends HttpServlet {
 		System.out.println("preis: " + price); 
 		System.out.println("menge: "+amount );
 		
-//		try {
-//			dao.setReservation(reservationId, startDate, endDate, email, firstName, lastName );
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			dao.setReservation(reservationId, newStartDate, newEndDate, firstName, lastName, email, phone );
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("Reservation inserted");
 		
 		
 		
@@ -111,35 +134,35 @@ public class MailServlet extends HttpServlet {
 		System.out.println(reservationItemId);
 		reservationItemId++;
 		
-		
-//		-> das auskommentieren wenn man an startdate und enddate kommt
-//		
+			
 //		SetReservationItemId()
 		
+		for(int i = 0; i<bikeIds.length;i++) {
+			try {
+				dao.setReservationItem(reservationItemId, reservationId, intbikeIds[i], intBikeAmounts[i]);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			reservationItemId++;
+		}
 		
-//		hier weitermachen!!
-//		bikeid aus cockie 
-//		amount aus cockie 
+		System.out.println("ReservationItem inserted");
 		
-//		try {
-//			dao.setReservationItem(reservationItemId, reservationId, bikeId, amount);
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+
 		
 
 //				//Mail1
 			    response.setContentType("text/html");  
-			    PrintWriter out = response.getWriter();  
+//			    PrintWriter out = response.getWriter();  
 			    String to=request.getParameter("email");  
-			    String subject= "Reservierungsbestätigung";
+			    String subject= "Reservierungsbestätigung #"+reservationId;
 				String msg= "<!DOCTYPE html>\r\n" + 
 						"<html lang=\"de\">\r\n" + 
 						"<head>\r\n" + 
@@ -189,12 +212,13 @@ public class MailServlet extends HttpServlet {
 						"		<img\r\n" + 
 						"			src='https://picture.yatego.com/images/5bec4787bb8692.7/big_3eb5d5c0fe1b8c40ef00d9e3de659acc-kqh/fahrrad-bike-sonnenuntergang-xxl-wandbild-kunstdruck-foto-poster-p0494.jpg'\r\n" + 
 						"			style='width: 100%'>\r\n" + 
-						"		<h2>ReservationId = "+reservationId+"</h2>\r\n" + 
+						"		<h2>Reservierungsnummer: #"+reservationId+"</h2>\r\n" + 
 						"\r\n" + 
 						"		<h4>Vielen Dank "+lastName+ " "+ firstName+" für Ihre Reservierung bei\r\n" + 
 						"			BiZirkel.</h4>\r\n" + 
 						"		<br>\r\n" + 
-						"		<h4 style='font-weight: bold;text-decoration:underline;'>Reservierungsinformationen</h4>\r\n" + 
+						"		<h3 style='font-weight: bold;text-decoration:underline;'>Reservierungsinformationen</h3>\r\n" + 
+						"		<h3>Datum: "+date[0]+" bis " + date[2]+"</h3>"+
 						"		<table style='width: 100%;border: 1px solid black;' >\r\n" + 
 						"			<tr>\r\n" + 
 						"				<th>Fahrradname</th>\r\n" + 
@@ -222,7 +246,7 @@ public class MailServlet extends HttpServlet {
 						"			</tr>\r\n" + 
 						"		</table>\r\n" + 
 						"		<br>\r\n" + 
-						"		<h4 style='font-weight: bold; text-decoration:underline;'>Informationen</h4>\r\n" + 
+						"		<h3 style='font-weight: bold; text-decoration:underline;'>Informationen</h3>\r\n" + 
 						"		<h4>\r\n" + 
 						"			Die Abholung kann an dem ersten Tag der Reservierung von 08:00 -\r\n" + 
 						"			17:00 Uhr durchgeführt werden. Bei der Abholung bitte die\r\n" + 
@@ -239,15 +263,15 @@ public class MailServlet extends HttpServlet {
 						"</body>\r\n" + 
 						"</html>";
 		     
-			    Mail.send(to, subject, msg);  
-			    out.print("message has been sent successfully an Käufer");  
-			    out.close();  
+			    Mail.send(to, subject, msg); 
+//			    out.print("message has been sent successfully an Käufer");  
+//			    out.close();  
 			    
 			  //Mail an BiZirkel
 			    
 
 			    response.setContentType("text/html");  
-			    PrintWriter printWriter = response.getWriter();  
+//			    PrintWriter printWriter = response.getWriter();
 			    String to2="bizirkelofficial@gmail.com"; 
 			    String subject2= "Neue Reservierung";
 				String msg2= "<!DOCTYPE html>\r\n" + 
@@ -262,12 +286,12 @@ public class MailServlet extends HttpServlet {
 						"<body>\r\n" + 
 						"	<div>\r\n" + 
 						"	ReservationId: " + reservationId+"<br>\r\n" + 
-						"	ReservationItemId: " + reservationItemId+"<br>\r\n" + 
+	//					"	ReservationItemId: " + reservationItemId+"<br>\r\n" + 
 						"	Vorname: "+firstName+"<br>\r\n" + 
 						"	Nachname: "+lastName+ "<br>\r\n" + 
 						"	Telefonnummer: "+phone+"<br>\r\n" + 
-						"	Datum: NOCH EINFÜGEN <br>\r\n" + 
-						"	Enddatum: NOCH EINFÜGEN<br>\r\n" + 
+						"	Startdatum: "+date[0]+" <br>\r\n" + 
+						"	Enddatum: " + date[2]+"<br>\r\n" + 
 						"	<table style='width: 100%;border: 1px solid black;' >\r\n" + 
 						"			<tr>\r\n" + 
 						"				<th>Fahrradname</th>\r\n" + 
@@ -293,16 +317,21 @@ public class MailServlet extends HttpServlet {
 						"</body>\r\n" + 
 						"</html>";
 				Mail.send(to2, subject2, msg2);  
-			    out.print("message has been sent successfully an Bizirkel");  
-			    out.close();  
+//				printWriter.print("message has been sent successfully an Bizirkel");  
+//				printWriter.close();  
 			    
+//				Alle Cockies löschen
+			    Cookie[] allCookies =request.getCookies(); 
+			    for (int i = 0; i < allCookies.length; i++){
+		               Cookie cookie = allCookies[i];
+		               cookie.setMaxAge(0);
+		               response.addCookie(cookie);
+		        }
+			    
+//				Weiterleitung auf leeren Warenkorb
+			    response.sendRedirect("/cart");
 			    
 	}
-
-
-	
-//	cockie clearen und auf cart seite wieder zurückleiten
-	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

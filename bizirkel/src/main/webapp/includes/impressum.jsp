@@ -1,6 +1,6 @@
 <div class="container-fluid bg-white" id="content">
     <section id="showcase">
-        <div class="row">
+        <div class="row paddingRow">
             <div class="col-12">
                 <div class="showcase-btn" style="text-align: center">
                      <h1> <img src="img/logoOhneSchrift.png" height="60px"></img> &nbsp;Impressum</h1>
@@ -9,7 +9,7 @@
         </div>
     </section>
 <section id="showcase">
-        <div class="row bg-light">
+        <div class="row bg-light" style="padding-bottom: 20px;">
             <div class="col-12">
                 <div class="showcase-left" style="text-align: center">
                     <h2>Anbieter</h2>
@@ -21,7 +21,7 @@
         </div>
     </section>
     <section id="showcase">
-        <div class="row ">
+        <div class="row" style="padding-bottom: 20px;">
             <div class="col-12">
                 <div class="showcase-right" style="text-align: center">
                     <h2>Kontakt</h2>
@@ -34,7 +34,7 @@
         </div>
     </section>
     <section id="showcase">
-        <div class="row bg-light">
+        <div class="row bg-light" style="padding-bottom: 20px;">
             <div class="col-12">
                 <div class="showcase-left" style="text-align: center">
                     <h2>Bei redaktionellen Inhalten:</h2>

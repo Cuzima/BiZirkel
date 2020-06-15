@@ -45,133 +45,69 @@ public class bikeOverviewServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		DaoController dao = new DaoController();
+
+		// get bikes from database
 		ArrayList<Bike> bikes = null;
-		bikes = (ArrayList<Bike>) request.getSession().getAttribute("bikes");
-		// if (bikes == null) {
+		// vielt wieder einkommentieren (unten)
+		// bikes = (ArrayList<Bike>) request.getSession().getAttribute("bikes");
 		try {
 			bikes = dao.getAllBikes();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		// }
 
-		//Sort bikes depending on the selected sort
+		// sort bikes depending on the selected sort
 		String sortPrice = request.getParameter("sortPrice");
-		if(sortPrice != null) bikes = BikeHelper.sortBikes(sortPrice, bikes);
+		if (sortPrice != null)
+			bikes = BikeHelper.sortBikes(sortPrice, bikes);
 		request.getSession().setAttribute("bikes", bikes);
-		
-		//Filter e-bikes
+
+		// filter e-bikes
 		String ebike = request.getParameter("filterEbike");
-		
-		if(ebike != null && !ebike.equals("E-Bike / Non E-Bike...")) {
+		if (ebike != null && !ebike.equals("E-Bike / Non E-Bike...")) {
 			Boolean isEbike = Boolean.parseBoolean(ebike);
 			bikes = BikeHelper.filterEbikes(isEbike, bikes);
 		}
+
+		// set the filtered bikes to session
 		request.getSession().setAttribute("bikes", bikes);
 
-		// Get Bikes according to the selected category
+		// filter Bikes according to the selected category
 		String category = request.getParameter("category");
 		if (category == null) {
 			category = (String) request.getSession().getAttribute("category");
-			if(category == null) {
+			if (category == null) {
 				request.setAttribute("page", "rent");
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
 		}
-		
 		bikes = BikeHelper.getBikes(category, bikes);
 		request.getSession().setAttribute("category", category);
 
+		// reduce the amount of available bikes considering the reservations for choosen
+		String dateString = request.getParameter("date");
+		Cookie[] cookies = request.getCookies();
+		Object[] dates = DateHelper.getStartEndDate(dateString, cookies);
+		java.util.Date startdate = (java.util.Date) dates[0];
+		java.util.Date enddate = (java.util.Date) dates[1];
+		String startdateString = (String) dates[2];
+		String enddateString = (String) dates[3];
+		ArrayList<Reservation> reservations = null;
+		try {
+			reservations = dao.getAllReservations();
+		} catch (SQLException | InterruptedException | ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ArrayList<Bike> bikesafterres = new ArrayList<Bike>();
 		bikesafterres = bikes;
+		bikesafterres = BikeHelper.removeReservatedAmounts(bikesafterres, startdate, enddate, reservations);
 
-		java.util.Date startdate = null;
-		java.util.Date enddate = null;
-		String dateString = request.getParameter("date");
-		String startdateString = "";
-		String enddateString = "";
-		if (dateString == null) {
-			Cookie[] cookies = request.getCookies();
-			if (cookies.length > 0) {
-				for (Cookie cookie : cookies) {
-					if (cookie.getName().equals("date"))
-						dateString = cookie.getValue();
-				}
-			}
-			if (dateString == null) {
-				Date today = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-				startdate = today;
-				enddate = today;
-				startdateString = today.toString();
-				enddateString = today.toString();
-			} else {
-				startdateString = dateString.substring(0, 10);
-				enddateString = dateString.substring(10, 20);
-				try {
-					startdate = new SimpleDateFormat("yyyy/MM/dd").parse(startdateString);
-					enddate = new SimpleDateFormat("yyyy/MM/dd").parse(enddateString);
-				} catch (ParseException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		} else {
-			startdateString = dateString.substring(0, 10);
-			enddateString = dateString.substring(10, 20);
-			try {
-				startdate = new SimpleDateFormat("yyyy/MM/dd").parse(startdateString);
-				enddate = new SimpleDateFormat("yyyy/MM/dd").parse(enddateString);
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
-		ArrayList<Reservation> reservations = null;
-		reservations = (ArrayList<Reservation>) request.getSession().getAttribute("reservations");
-		if (reservations == null) {
-			try {
-				reservations = dao.getAllReservations();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		if (reservations != null) {
-			for (Reservation reservation : reservations) {
-				if ((startdate.after(reservation.getStartDate()) && startdate.before(reservation.getEndDate()))
-						|| (enddate.after(reservation.getStartDate()) && enddate.before(reservation.getEndDate()))
-						|| (startdate.after(reservation.getStartDate()) && enddate.before(reservation.getEndDate()))
-						|| (startdate.before(reservation.getStartDate()) && enddate.after(reservation.getEndDate()))
-						|| (startdate.compareTo(reservation.getStartDate()) == 0)
-						|| (startdate.compareTo(reservation.getEndDate()) == 0)
-						|| (enddate.compareTo(reservation.getStartDate()) == 0)
-						|| (enddate.compareTo(reservation.getEndDate()) == 0)) {
-					for (ReservationItem reservationitem : reservation.getReservationItems()) {
-						for (Bike bike : bikesafterres) {
-							if (bike.getId() == reservationitem.getBikeid()) {
-								bike.setAmount(bike.getAmount() - reservationitem.getAmount());
-							}
-						}
-					}
-				}
-			}
-		}
+		//sendStuffToSession
 		request.setAttribute("startdate", DateHelper.changeDate(startdateString));
 		request.setAttribute("enddate", DateHelper.changeDate(enddateString));
-
-		// ----
 		request.getSession().setAttribute("bikesafterre", bikesafterres);
-		// ----
-
 		request.getSession().setAttribute("reservations", reservations);
-
 		request.setAttribute("decide", request.getSession().getAttribute("decide"));
 		request.setAttribute("page", "bikeOverview");
 		request.getRequestDispatcher("index.jsp").forward(request, response);

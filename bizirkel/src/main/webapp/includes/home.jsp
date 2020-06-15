@@ -15,15 +15,15 @@
 
 <link rel="stylesheet" href="css/home.css">
 
-<section id="showcase">
-	<div class="row">
+<section id="showcase" style="margin-top: 15px">
+	<div class="row paddingRow">
 		<div class="col-md-2 col-sm-2"></div>
 		<div class="col-md-8 col-sm-8">
 			<div class="heading" style="text-align: center">
 				<h1 id="heading1">Ihr Biker-Shop in Edingen-Neckarhausen</h1>
 				<p>Ihr Fachhändler für Trekking, Mountainbikes, Crossräder,
-					E-Bikes, Kinder- und Jugendräder</p>
-				<a href="about"class="btn btn-default btn-lg showcase-btn"
+					E-Bikes, Kinder- und Jugendräder.</p>
+				<a href="about" class="btn btn-default btn-lg showcase-btn"
 					style="margin-bottom: 15px">Über uns</a>
 
 			</div>
@@ -32,7 +32,7 @@
 	</div>
 </section>
 
-<div class="row">
+<div class="row paddingRow">
 	<div class="col-md-1 col-sm-1"></div>
 	<div class="col col-10">
 		<div class="showcase-left">
@@ -66,23 +66,23 @@
 
 <div class="container-fluid bg-white" id="content">
 	<section id="showcase">
-		<div class="row">
+		<div class="row paddingRow">
 			<div class="col-md-2 col-sm-2"></div>
 			<div class="col-md-8 col-sm-8">
 				<div class="showcase-btn" style="text-align: center">
-					<h1>Ihr Biker-Shop in Edingen-Neckarhausen</h1>
-					<p>Ihr Fachhändler für Trekking, Mountainbikes, Crossräder,
-						E-Bikes, Kinder- und Jugendräder</p>
+					<h1>Fahrspaß alleine oder mit der ganzen Familie</h1>
+					<p>Leihen Sie sich bequem von zuhause auf unserer Webseite ein
+						Fahrrad aus.</p>
 
-					<a href="rent" class="btn btn-default btn-lg showcase-btn" id="btnOnWhite"
-						style="margin-bottom: 15px;">Rent a Bike</a>
+					<a href="rent" class="btn btn-default btn-lg showcase-btn"
+						id="btnOnWhite" style="margin-bottom: 15px;">Rent a Bike</a>
 				</div>
 			</div>
 			<div class="col-md-2 col-sm-2"></div>
 		</div>
 	</section>
 	<section id="info2">
-		<div class="row bg-light">
+		<div class="row bg-light paddingRow">
 			<div class="col-md-1 col-sm-1"></div>
 			<div class="col-md-4 col-sm-4">
 				<div class="info-left" style="text-align: center">
@@ -90,14 +90,10 @@
 						style="margin-bottom: -20px" />
 					<h2>Fahrräder und Zubehör</h2>
 					<p>Wir bieten Ihnen eine große Auswahl an Marken-Fahrrädern.
-						Auswahl an Mountainbikes, Trekkingbikes, Citybikes, E-Bikes,
-						Crossbikes, All Terrain Bikes, Rennrädern, Kinderrädern,
-						BMX-Rädern, Falträdern, Hollandrädern, XXL-Rädern, Lastenrädern,
-						Singlespeed- und Lifestylerädern. Darunter finden sich
-						traditionsreiche Qualitätsmarken wie Conway, Haibike, BH,
-						Victoria, Winora und viele mehr. So finden in Ihrem Biker-Shop
-						Ruppert das perfekte Fahrrad für Ihre individuellen Wünsche und
-						Ansprüche.</p>
+						Auswahl an breite Auswahl an Mountainbikes,
+						Trekkingbikes/Citybikes, E-Bikes, Roadbikes und Kinderrädern. So
+						finden in Ihrem Biker-Shop BiZirkel das perfekte Fahrrad für Ihre
+						individuellen Wünsche und Ansprüche.</p>
 				</div>
 			</div>
 			<div class="col-md-2 col-sm-2"></div>
@@ -106,11 +102,11 @@
 					<img src="img/iconservice.png" height="70"
 						style="margin-bottom: -20px" />
 					<h2>Werkstattservice</h2>
-					<p>Wir bieten Ihnen nicht nur den Verkauf sondern auch
+					<p>Wir bieten Ihnen nicht nur den Verleih sondern auch
 						Reparatur- und Werkstatt-Service an. Vereinbaren Sie gleich einen
 						Termin um Ihr Fahrrad durchchecken zu lassen. Ob Inspektion,
 						Wartung oder ein kleinerer Service, wir bemühen uns alle Arbeiten
-						an Deinem Fahrrad professionell, preiswert und möglichst in kurzer
+						an Ihrem Fahrrad professionell, preiswert und möglichst in kurzer
 						Zeit zu absolvieren.</p>
 				</div>
 			</div>
@@ -118,39 +114,111 @@
 		</div>
 	</section>
 	<section id="showcase">
-		<div class="row">
+		<div class="row paddingRow">
 			<div class="col-md-8 col-sm-8">
-				<div class="showcase-left" style="text-align: center">
+				<div class="showcase-left" style="text-align: center;">
 					<h2>Leihräder und Gebrauchträder</h2>
 					<p>Wir bieten Ihnen zum Verleih normale Damen- und Herrenräder
 						in verschiedenen Größen und/oder unsere leistungsstarken
-						Elektroräder.</p>
-					<p>Gerne können Sie unsere Leihräder auch direkt bei uns
-						reservieren. Die Preise für die Leihgebühr entnehmen Sie bitte der
-						Preisliste.</p>
+						Elektroräder.
 				</div>
 			</div>
-			<div class="col-md-4 col-sm-4"></div>
+			<div class="showcase-bottom col-md-4 col-sm-4">
+				<img width="100%"
+					src="https://images.assetsdelivery.com/compings_v2/wavebreakmediamicro/wavebreakmediamicro1507/wavebreakmediamicro150701194.jpg" />
+			</div>
 		</div>
 	</section>
 	<section id="showcase">
-		<div class="row bg-light">
+		<div class="row bg-light paddingRow">
 
-			<div class="col-md-4 col-sm-4"></div>
+			<div class="showcase-top col-md-4 col-sm-4">
+				<img width="100%"
+					src="https://images.assetsdelivery.com/compings_v2/wavebreakmediamicro/wavebreakmediamicro1507/wavebreakmediamicro150701194.jpg" />
+			</div>
 			<div class="col-md-8 col-sm-8">
 				<div class="showcase-right" style="text-align: center">
 					<h2>Unabhängig und mobil</h2>
-					<p>Eine gemütliche Tour durch die Stadt oder die Weinberge mit einem City-;Trekking- oder Elektrofahrrad? Oder doch eine rasante Tour durch den Pfälzerwald mit einem 
-						Mountainbike?<br>
-						Hier finden Sie das perfekte Rad!<br>
-						Sie haben die Wahl aus verschiedensten Rädern. Egal ob einfache und gemütliche Radreise mit unseren City-Bikes, oder herausfordernde Trails im Pfälzer Wald, 
-						mit hochwertigen Hardtail und Mountainbikes, kommen Sie überall hin. Die Bosch-Motoren der E-Bikes sorgen für einen stetigen Rückenwind. 
-						Werfen Sie einen Blick in unsere große Auswahl an Leihräder!
+					<p>
+						Eine gemütliche Tour durch die Stadt oder die Weinberge mit einem
+						City-;Trekking- oder Elektrofahrrad? Oder doch eine rasante Tour
+						durch den Wald mit einem Mountainbike?<br> In Ihrem BiZirkel
+						Biker-Shop finden Sie das perfekte Rad!<br> Sie haben die
+						Wahl aus verschiedensten Rädern. Egal ob einfache und gemütliche
+						Radreise mit unseren City-Bikes, oder herausfordernde Trails im
+						Pfälzer Wald, mit hochwertigen Hardtail und Mountainbikes, kommen
+						Sie überall hin. Die Bosch-Motoren der E-Bikes sorgen für einen
+						stetigen Rückenwind. Werfen Sie einen Blick in unsere große
+						Auswahl an Leihräder!
 					</p>
 				</div>
 			</div>
 		</div>
+		<hr />
 	</section>
-</div>
+	<div class="row paddingRow showcase-btn">
+		<h1 style="margin-left: auto; margin-right: auto; margin-bottom: 40px">Unsere Kunden</h1>
+		<div class="card">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-2" style="text-align: center">
+						<img src="../img/jessica.png"
+							class="img img-rounded img-fluid" style="border-radius: 100px;"/>
+						<p class="text-secondary text-center">15 Minutes Ago</p>
+					</div>
+					<div class="col-md-10">
+						<p>
+							<a class="float-left"
+								href="#"><strong>Jessica Binder</strong></a> <span class="float-right"><i
+								class="text-warning fa fa-star"></i></span> <span class="float-right"><i
+								class="text-warning fa fa-star"></i></span> <span class="float-right"><i
+								class="text-warning fa fa-star"></i></span> <span class="float-right"><i
+								class="text-warning fa fa-star"></i></span> <span class="float-right"><i
+								class="text-warning fa fa-star"></i></span>
 
-
+						</p>
+						<div class="clearfix"></div>
+						<h2>Toller Fahrradverleih!</h2>
+						<p>Letztes Wochenende konnte ich eine atemberaubende Fahrradtour durch die Trails von Heidelberg mit meinem Freund
+						machen. Außerdem trifft man im Shop auf freundliches Personal und die Bedienung der Webseite ist sehr simpel und leicht verständlich gehalten!
+						5 Sterne!</p>
+						<p>
+							<a class="float-right btn btn-outline-primary ml-2"> <i
+								class="fa fa-reply"></i> Reply
+							</a> <a class="float-right btn text-white btn-danger"> <i
+								class="fa fa-heart"></i> Like
+							</a>
+						</p>
+					</div>
+				</div>
+				<div class="card card-inner">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-2" style="text-align: center">
+						<img src="../img/meikel.png"
+							class="img img-rounded img-fluid" style="border-radius: 100px;"/>
+						<p class="text-secondary text-center">12 Minutes Ago</p>
+					</div>
+							<div class="col-md-10">
+								<p>
+									<a
+										href="#"><strong>Meikel Vielhauer</strong></a>
+								</p>
+								<h2>Re: Toller Fahrradverleih!</h2>
+								<p>
+									Da muss ich meiner Freundin zustimmen! Toller Laden!
+								</p>
+								<p>
+									<a class="float-right btn btn-outline-primary ml-2"> <i
+										class="fa fa-reply"></i> Reply
+									</a> <a class="float-right btn text-white btn-danger"> <i
+										class="fa fa-heart"></i> Like
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

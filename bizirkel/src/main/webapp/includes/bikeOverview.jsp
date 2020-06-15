@@ -69,9 +69,10 @@ input {
 	text-align: center
 }
 </style>
+
 <!-- Filter -->
-<div class="row showcase-btn2">
-	<div class="col col-1">
+<div class="row showcase-btn2" style="margin-top: 20px;">
+	<div class="col col-12 col-lg-1">
 		<svg style="float: right;" class="bi bi-funnel" width="2em"
 			height="2em" viewBox="0 0 16 16" fill="currentColor"
 			xmlns="http://www.w3.org/2000/svg">
@@ -80,7 +81,7 @@ input {
 		</svg>
 	</div>
 
-	<div class="col col-2">
+	<div class="col col-12 col-lg-2">
 		<select class="custom-select" id="inputGroupSelect01"
 			onchange="filterEbike()">
 			<option selected>E-Bike / Non E-Bike...</option>
@@ -89,7 +90,7 @@ input {
 		</select>
 	</div>
 
-	<div class="col col-1">
+	<div class="col col-12 col-lg-1">
 		<svg style="float: right;" class="bi bi-filter" width="2em"
 			height="2em" viewBox="0 0 16 16" fill="currentColor"
 			xmlns="http://www.w3.org/2000/svg">
@@ -98,7 +99,7 @@ input {
 </svg>
 	</div>
 
-	<div class="col col-2">
+	<div class="col col-12 col-lg-2">
 		<select class="custom-select" id="inputGroupSelect02"
 			onchange="sortByPrice()">
 			<option selected>Preis...</option>
@@ -106,7 +107,7 @@ input {
 			<option value="ascending">Preis aufsteigend</option>
 		</select>
 	</div>
-	<div class="col col-5">
+	<div class="col col-12 col-lg-5">
 		<c:choose>
 			<c:when test="${not empty startdate}">
 				<input type="text" name="daterange"
@@ -172,7 +173,9 @@ input {
 					<c:when test="${bike.amount ge 1}">
 						<div class="col col-2">
 
-							<h5 style="color: <c:choose><c:when test="${bike.amount ge 5}">green</c:when><c:otherwise>orange</c:otherwise></c:choose>">${bike.amount} auf Lager</h5>
+							<h5
+								style="color: <c:choose><c:when test="${bike.amount ge 5}">green</c:when><c:otherwise>orange</c:otherwise></c:choose>">${bike.amount}
+								auf Lager</h5>
 						</div>
 
 					</c:when>
@@ -202,10 +205,9 @@ input {
 
 				<div class="col col-1"></div>
 				<a class="col col-4 btn btn-default btn-lg showcase-btn"
-					onclick="fillCartCookie(${bike.id})"> <!-- href="fillCartCookie?setCk=yes&bikeid=${bike.id}&<c:if test="${not empty startdate}">date=${startdate}${enddate}</c:if>"> -->
-
-					<svg class="bi bi-bag" width="1em" height="1em" viewBox="0 0 16 16"
-						fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					onclick="fillCartCookie(${bike.id})"> <svg class="bi bi-bag"
+						width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+						xmlns="http://www.w3.org/2000/svg">
 	                    <path fill-rule="evenodd"
 							d="M14 5H2v9a1 1 0 001 1h10a1 1 0 001-1V5zM1 4v10a2 2 0 002 2h10a2 2 0 002-2V4H1z"
 							clip-rule="evenodd" />
@@ -213,7 +215,6 @@ input {
 							d="M8 1.5A2.5 2.5 0 005.5 4h-1a3.5 3.5 0 117 0h-1A2.5 2.5 0 008 1.5z" />
 	                	</svg>
 				</a>
-
 				<div class="col col-1"></div>
 			</div>
 		</div>
@@ -235,14 +236,28 @@ input {
 			<div class="modal-content">
 
 				<div class="modal-header">
+					<h2>Zum Warenkorb?</h2>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="modal-body">
-					<button type="button" class="btn btn-default" data-dismiss="modal"
+					<div class="row">
+						<div class="col col-6">
+						<button type="button" class="btn btn-default" data-dismiss="modal"
 						onclick="goToCart()">Zum Warenkorb</button>
 					<p></p>
 					<button type="button" class="btn btn-default" data-dismiss="modal">Weiter
 						reservieren</button>
+						
+						</div>
+						<div class="col col-6">
+						
+						<div class="spritespin" style="margin-left:auto"></div>
+						
+						</div>
+					
+					
+					</div>
+					
 					<div class="progress" style="margin-top: 10px; margin-bottom: -5px">
 						<div
 							class="progress-bar progress-bar-striped progress-bar-animated"
@@ -257,6 +272,7 @@ input {
 	</div>
 
 </div>
+<script src="https://unpkg.com/spritespin@4.0.11/release/spritespin.js" type="text/javascript"></script>
 
 <!-- <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
@@ -268,7 +284,7 @@ input {
 %>
 <script>
 	$( document ).ready(function() {
-	     
+		
 	     var url = new URL(window.location.href);
 	     var filterEbike = url.searchParams.get("filterEbike");
 	     var sortPrice = url.searchParams.get("sortPrice");
@@ -314,7 +330,22 @@ input {
 
 		window.location.href = '/fillCartCookie?setCk=yes&bikeid='+bikeid;
 	}
-	
+	$(function() {
+		  $('.spritespin').spritespin({
+		    // Set a single image url as source
+		    source: '../img/bike6x6_big.jpg',
+		    // Define the size of the display.
+		    width: 120,
+		    height: 81.75,
+		    // Set the total number of frames to show. The 6x6 sprite might contain 36 images
+		    // but it only has 34 frames, hence we set it to 34 here
+		    frames: 34,
+		    // The 6x6 sprite sheet contains 6 frames in one row.
+		    framesX: 6,
+		    // reverse interaction direction
+		    sense: -1
+		  });
+		})
 	$(function() {
 		$('input[name="daterange"]').daterangepicker(
 				{
@@ -336,6 +367,7 @@ input {
 	if ("${decide}" == "yes") {
 		var counter = 100;
 		$('#myModal').modal('show');
+		
 		check();
 	}
 
@@ -358,4 +390,5 @@ input {
 	function goToCart() {
 		window.location.href = '/cart';
 	}
+	
 </script>

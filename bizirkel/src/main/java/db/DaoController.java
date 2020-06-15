@@ -216,18 +216,16 @@ public class DaoController {
 		}
 	} 
 	
-	public void setReservation(int id, Date startDate, Date endDate, String email, String firstName, String lastName)throws SQLException, InterruptedException, ParseException {
-		
-		try (Connection con = Dao.getInstance().getConnection()) {
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("INSERT INTO RESERVATION(id, startdate, enddate, email, name, surname)" + 
-					"VALUES('"+id+"', '"+startDate+"', '"+endDate+"', '"+email+"', '"+firstName+"', '"+lastName+"')");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-	}
-	
+	public void setReservation(int id, String newStartDate, String newEndDate, String email, String firstName, String lastName, String phone)throws SQLException, InterruptedException, ParseException {
+
+        try (Connection con = Dao.getInstance().getConnection()) {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("INSERT INTO reservation " + "VALUES("+id+", '"+newStartDate+"', '"+newEndDate+"', '"+email+"', '"+firstName+"', '"+lastName+"' , '"+phone+"')");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 	
 	public int getReservationItemId()throws SQLException, InterruptedException, ParseException {
 		ArrayList<Reservation> reservationId = new ArrayList<Reservation>();
@@ -255,16 +253,16 @@ public class DaoController {
 	} 
 	
 	public void setReservationItem(int id, int reservationId, int bikeId, int amount)throws SQLException, InterruptedException, ParseException {
-		
-		try (Connection con = Dao.getInstance().getConnection()) {
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("INSERT INTO RESERVATIONITEM(id, reservationid, bikeid, amount)" + 
-					"VALUES('"+id+"', '"+reservationId+"', '"+bikeId+"', '"+amount+"')");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-	}
+
+        try (Connection con = Dao.getInstance().getConnection()) {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate("INSERT INTO reservationitem " +"VALUES("+id+", "+reservationId+", "+bikeId+", "+amount+")");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 	
 	
 	

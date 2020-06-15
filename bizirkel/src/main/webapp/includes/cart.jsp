@@ -15,6 +15,30 @@
 <link rel="stylesheet" type="text/css"
 	href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<h2>Artikel nicht verf&uuml;gbar</h2>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Okay</button>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+<input id="avail" type="hidden" value="${avail}" />
+<input id="daysbetween" type="hidden" value="${daysbetween}" />
+<%
+	request.getSession().setAttribute("avail", "");
+%>
 <div class="container-fluid bg-white" id="content">
 	<h1 class="showcase-btn2"
 		style="color: darkslategray; text-align: center">
@@ -23,6 +47,10 @@
 	</h1>
 	<hr />
 
+	<c:if test="${empty cartbikes}">
+		<h2 class="showcase-btn" style="text-align: center">Warenkorb ist
+			leer!</h2>
+	</c:if>
 	<c:forEach items="${cartbikes}" var="cartbike" varStatus="loop">
 		<c:choose>
 			<c:when test="${(loop.index mod 2) == 0}">
@@ -63,11 +91,32 @@
 				</div>
 			</div>
 			<div class="row priceandamount">
-				<div class="col col-6" id="columnHeight">
-					<h5 id="input1" class="price">${cartbike.price}&euro;</h5>
+				<div class="col col-4" id="columnHeight">
+					<h5 id="input1" class="price">${cartbike.price}&euro;/Tag</h5>
 				</div>
-				<div class="col col-6" id="columnHeight">
-					<input id="input2" class="inputField inputamount"
+				<div class="col col-4" id="columnHeight">
+					<input class="availableBikes" type="hidden"
+						value="${bikesafterre[cartbike.id-1].amount}" />
+
+					<c:choose>
+						<c:when test="${bikesafterre[cartbike.id-1].amount ge 1}">
+							<h5 id="input3" class="amount"
+								style="color: <c:choose><c:when test="${bikesafterre[cartbike.id-1].amount ge 5}">green</c:when><c:otherwise>orange</c:otherwise></c:choose>">${bikesafterre[cartbike.id-1].amount}
+								auf Lager</h5>
+
+						</c:when>
+						<c:otherwise>
+							<h5 style="color: red">Nicht auf Lager</h5>
+
+						</c:otherwise>
+					</c:choose>
+
+
+
+					
+				</div>
+				<div class="col col-4" id="columnHeight">
+					<input id="amount${cartbike.id}" class="inputField inputamount"
 						value="${cartbike.amount}" placeholder="Menge"
 						onkeyup="calculate()" style="width: 100px"></input>
 				</div>
@@ -98,7 +147,7 @@
 
 <hr />
 
-<form onsubmit="checkForm()" method="post">
+<form onsubmit="checkForm()">
 	<div class="row ">
 		<div class="col showcase-left">
 			<h2 style="color: darkslategray">Kontaktformular</h2>
@@ -109,7 +158,7 @@
 		<div class="form-group col-12 showcase-btn2">
 			<c:choose>
 				<c:when test="${not empty startdate}">
-					<input type="text" class="form-control" name="daterange"
+					<input type="text" class="form-control" name="daterange" id="date"
 						value="${startdate} - ${enddate}" style="width: 100%" />
 				</c:when>
 				<c:otherwise>
@@ -149,12 +198,12 @@
 	<div class="row">
 		<div class="col" style="text-align: center">
 			<input class="btn btn-default btn-lg showcase-btn2" id="btnOnWhite"
-				style="margin-bottom: 15px" type="submit"
+				style="margin-bottom: 15px" onclick="checkForm()"
 				value="Reservierung abschicken">
 		</div>
 	</div>
 </form>
-</div>
+
 <script>
 function checkForm() {
 	
@@ -183,38 +232,52 @@ function checkForm() {
 		alert("Festgestellte Probleme:" + formError);
 	}else{
 		
-		console.log("In else  angekommen");
 		var totalPrice = $("#totalAmountNumber").text();
 		totalPrice=totalPrice.substring(0, totalPrice.length -1);
-		console.log(totalPrice);
-		
+
 		var name="";
 		var amount="";
 		var price="";
+		var bikeId="";
 		
-	 	$(".namePriceAmount").each(function(index, element) {
+	 	$(".bikeforcookie").each(function(index, element) {
 	 		var uniquePrice = $(this).find(".price").text();
 	 		
 			name+= $(this).find("#bikeName").text()+';;';
 			amount += $(this).find(".inputamount").val()+';;';
 			price += parseFloat(uniquePrice.substring(0, uniquePrice.length - 1))+';;';
-			
-			console.log('Name: ' +name);
-			console.log('amount : '+ amount); 
-			console.log('Preis: '+ price);
-			
-		}); 
+			bikeId += $(this).find(".bikeid").val() + ";;";			
+		}); 	 	
 	 	
-		alert('Reservierung wurde erfolgreich ausgeführt. Es wurde Ihnen eine Mail gesendet, in dieser Sie weitere Informationen erhalten.');
-	 	window.location.href = '/mail?name='+name
-				+'&amount='+amount
-				+'&price='+price
-				+'&firstName='+$("#firstName").val()
-				+'&lastName='+$("#lastName").val()
-				+'&email='+$("#inputEmail4").val()
-				+'&number='+$("#formGroupExampleInput").val()
-				+'&note='+$("#comment").val()
-				+'&totalPrice='+totalPrice;
+	 	var boolProceed = 'true';
+	 	$(".bikeforcookie").each(function(index, element) {
+	 		var inputamount = parseInt($(this).find(".inputamount").val());
+			var maxamount = parseInt($(this).find(".availableBikes").val());
+			if(inputamount > maxamount){
+				boolProceed = 'false';	
+			}
+	 	});
+	 
+	 	if(boolProceed == 'true'){
+	 		alert('Reservierung wurde erfolgreich ausgeführt. Es wurde Ihnen eine Mail gesendet, in dieser Sie weitere Informationen erhalten.');
+	 		window.location.href = '/mail?name='+name
+            +'&amount='+amount
+            +'&price='+price
+            +'&firstName='+$("#firstName").val()
+            +'&lastName='+$("#lastName").val()
+            +'&email='+$("#inputEmail4").val()
+            +'&number='+$("#formGroupExampleInput").val()
+            +'&note='+$("#comment").val()
+            +'&totalPrice='+totalPrice
+            +'&bikeId='+bikeId
+            +'&date='+ $("#date").val();
+	 	}else{
+	 		$('#myModal').modal('show');
+	 	}
+	 	
+		
+		//window.location.replace('mail');
+		
 		//daterange hinzufügen 
 	}
 	
@@ -236,6 +299,7 @@ $(function() {
 				console.log("A new date selection was made: "
 						+ start.format('YYYY-MM-DD') + ' to '
 						+ end.format('YYYY-MM-DD'));
+				location.reload();
 
 			});
 });
@@ -255,7 +319,20 @@ $(function() {
 			var bikeid = $(this).find(".bikeid").val();
 			document.cookie = bikeid+"=x";
 			document.cookie = bikeid+"="+amount;
+
+			var inputamount = parseInt($(this).find(".inputamount").val());
+			var maxamount = parseInt($(this).find(".availableBikes").val());
+			if(inputamount > maxamount){
+				$(this).find(".inputamount").css('background-color', '#ff000029');
+				$(this).find(".inputamount").css('border-color', 'black');
+			}else{
+				$(this).find(".inputamount").css('background-color', 'white');
+				$(this).find(".inputamount").css('border-color', '#ccc');
+			}
+			
+
 		});
+		totalprice *= parseInt($('#daysbetween').val());
 		$('#totalAmountNumber').text(totalprice + "\u20ac");
 				
 	}
@@ -266,23 +343,23 @@ $(function() {
 	}
 
 	$(document).ready(function() {
-		calculate();
-		console.log(getCookie("date"));
-	});
-	
-	function getCookie(cname) {
-		  var name = cname + "=";
-		  var decodedCookie = decodeURIComponent(document.cookie);
-		  var ca = decodedCookie.split(';');
-		  for(var i = 0; i <ca.length; i++) {
-		    var c = ca[i];
-		    while (c.charAt(0) == ' ') {
-		      c = c.substring(1);
-		    }
-		    if (c.indexOf(name) == 0) {
-		      return c.substring(name.length, c.length);
-		    }
-		  }
-		  return "";
-		}
+        calculate();
+        console.log(getCookie("date"));
+    });
+
+    function getCookie(cname) {
+          var name = cname + "=";
+          var decodedCookie = decodeURIComponent(document.cookie);
+          var ca = decodedCookie.split(';');
+          for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+            }
+          }
+          return "";
+        }
 </script>
