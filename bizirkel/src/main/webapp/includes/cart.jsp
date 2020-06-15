@@ -34,6 +34,35 @@
 
 	</div>
 </div>
+<div class="modal fade" id="reservationModal" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2>Reservierung erfolgreich</h2>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<p>Reservierung wurde erfolgreich ausgef&uuml;hrt. Es wurde Ihnen eine Mail gesendet, in dieser Sie weitere Informationen erhalten.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="formModal" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2>Festgestellte Probleme:</h2>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+			<div class="modal-body">
+				<p id="formProblems"></p>
+			</div>
+		</div>
+	</div>
+</div>
+
 <input id="avail" type="hidden" value="${avail}" />
 <input id="daysbetween" type="hidden" value="${daysbetween}" />
 <%
@@ -212,24 +241,29 @@ function checkForm() {
 	
 	console.log($("#lastName").val());
 	
-	if ($("#lastName").val() == "") {
+	if ($("#lastName").val() == '') {
 		formError += "\nTragen Sie bitte einen Nachnamen ein.";
 	}
 
-	if ($("#firstName").val() == "") {
+	if ($("#firstName").val() == '') {
 		formError += "\nTragen Sie bitte einen Vornamen ein.";
 	}
 
-	if ($("#inputEmail4").val()== "") {
+	if ($("#inputEmail4").val()== '') {
 		formError += "\nTragen Sie bitte eine E-Mail Adresse ein.";
 	}
 
-	if ($("#formGroupExampleInput").val() == "") {
+	if ($("#formGroupExampleInput").val() == '') {
 		formError += "\nTragen Sie bitte eine Telefonnummer ein.";
 	}
 
 	if (formError.length > 0) {
-		alert("Festgestellte Probleme:" + formError);
+		console.log("formFehler");
+		$("#formProblems").text(formError);
+		console.log($("#formProblems").text());
+		console.log($("#formProblems").val());
+ 		$('#formModal').modal('show');
+		//alert("Festgestellte Probleme:" + formError);
 	}else{
 		
 		var totalPrice = $("#totalAmountNumber").text();
@@ -259,7 +293,7 @@ function checkForm() {
 	 	});
 	 
 	 	if(boolProceed == 'true'){
-	 		alert('Reservierung wurde erfolgreich ausgeführt. Es wurde Ihnen eine Mail gesendet, in dieser Sie weitere Informationen erhalten.');
+	 		$('#reservationModal').modal('show');
 	 		window.location.href = '/mail?name='+name
             +'&amount='+amount
             +'&price='+price

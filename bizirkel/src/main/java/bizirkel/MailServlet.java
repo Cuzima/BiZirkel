@@ -286,7 +286,6 @@ public class MailServlet extends HttpServlet {
 						"<body>\r\n" + 
 						"	<div>\r\n" + 
 						"	ReservationId: " + reservationId+"<br>\r\n" + 
-	//					"	ReservationItemId: " + reservationItemId+"<br>\r\n" + 
 						"	Vorname: "+firstName+"<br>\r\n" + 
 						"	Nachname: "+lastName+ "<br>\r\n" + 
 						"	Telefonnummer: "+phone+"<br>\r\n" + 
