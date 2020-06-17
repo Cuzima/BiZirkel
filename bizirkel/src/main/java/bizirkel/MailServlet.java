@@ -1,6 +1,7 @@
 package bizirkel;
 
 import java.io.*;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -82,6 +83,12 @@ public class MailServlet extends HttpServlet {
 	    
 	   
 	    String daterange=request.getParameter("date");
+	    if(daterange.equals("undefined")) {
+	    	Date today = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+	    	daterange=today.toString();
+	    	daterange = DateHelper.changeDate(daterange);
+	    	daterange = daterange + " - " + daterange;
+	    }
 	    String []date=daterange.split(" ");
 	    System.out.println(date[0]);
 	    System.out.println(date[2]);

@@ -216,7 +216,7 @@
 
 		<div class="form-group col-12 showcase-left">
 			<textarea class="form-control" rows="5" id="comment"
-				placeholder="Was wollen Sie uns noch mitteilen?"></textarea>
+				placeholder="Was wollen Sie uns noch mitteilen? Brauchen Sie noch einen Helm oder Kindersitz? Dann teilen Sie es uns hier mit. "></textarea>
 		</div>
 	</div>
 	<div class="row ">
@@ -226,7 +226,7 @@
 	</div>
 	<div class="row">
 		<div class="col" style="text-align: center">
-			<input class="btn btn-default btn-lg showcase-btn2" id="btnOnWhite"
+			<input type="button" class="btn btn-default btn-lg showcase-btn2" id="btnOnWhite"
 				style="margin-bottom: 15px" onclick="checkForm()"
 				value="Reservierung abschicken">
 		</div>
@@ -242,29 +242,26 @@ function checkForm() {
 	console.log($("#lastName").val());
 	
 	if ($("#lastName").val() == '') {
-		formError += "\nTragen Sie bitte einen Nachnamen ein.";
-	}
+        formError += "Tragen Sie bitte einen Nachnamen ein. <br>";
+    }
 
-	if ($("#firstName").val() == '') {
-		formError += "\nTragen Sie bitte einen Vornamen ein.";
-	}
+    if ($("#firstName").val() == '') {
+        formError += "Tragen Sie bitte einen Vornamen ein. <br>";
+    }
 
-	if ($("#inputEmail4").val()== '') {
-		formError += "\nTragen Sie bitte eine E-Mail Adresse ein.";
-	}
+    if ($("#inputEmail4").val()== '') {
+        formError += "Tragen Sie bitte eine E-Mail Adresse ein. <br>";
+    }
 
-	if ($("#formGroupExampleInput").val() == '') {
-		formError += "\nTragen Sie bitte eine Telefonnummer ein.";
-	}
+    if ($("#formGroupExampleInput").val() == '') {
+        formError += "Tragen Sie bitte eine Telefonnummer ein. <br>";
+    }
 
-	if (formError.length > 0) {
-		console.log("formFehler");
-		$("#formProblems").text(formError);
-		console.log($("#formProblems").text());
-		console.log($("#formProblems").val());
- 		$('#formModal').modal('show');
-		//alert("Festgestellte Probleme:" + formError);
-	}else{
+    if (formError.length > 0) {
+        console.log("formFehler");
+        $("#formProblems").html(formError);
+        $('#formModal').modal('show');
+    }else{
 		
 		var totalPrice = $("#totalAmountNumber").text();
 		totalPrice=totalPrice.substring(0, totalPrice.length -1);

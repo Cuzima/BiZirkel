@@ -115,44 +115,44 @@
 	</section>
 	<section id="showcase">
 		<div class="row paddingRow">
-			<div class="col-md-8 col-sm-8">
-				<div class="showcase-left" style="text-align: center;">
+			<div class="showcase-bottom col-md-1 col-sm-0"></div>
+			<div class="col-md-6 col-sm-12">
+				<div class="showcase-left" style="text-align: center">
 					<h2>Leihräder und Gebrauchträder</h2>
 					<p>Wir bieten Ihnen zum Verleih normale Damen- und Herrenräder
 						in verschiedenen Größen und/oder unsere leistungsstarken
 						Elektroräder.
 				</div>
 			</div>
-			<div class="showcase-bottom col-md-4 col-sm-4">
+			<div class="showcase-bottom col-md-1 col-sm-0"></div>
+			<div class="showcase-bottom col-md-3 col-sm-12">
 				<img width="100%"
-					src="https://images.assetsdelivery.com/compings_v2/wavebreakmediamicro/wavebreakmediamicro1507/wavebreakmediamicro150701194.jpg" />
+					src="https://media.discordapp.net/attachments/718192715510317151/722348149808693309/sKqt4f7AbRrnwwjeCOqyEigtaZCtx4JcgPRcp68Lsnl43vDg9m7T24uwoP0u7c0n5FxqH9htdRWHgV7Ad5wwSHInUunWT7lCdqaF.png" />
 			</div>
+			<div class="showcase-bottom col-md-1 col-sm-0"></div>
 		</div>
 	</section>
 	<section id="showcase">
 		<div class="row bg-light paddingRow">
+			<div class="showcase-bottom col-md-1 col-sm-0"></div>
 
-			<div class="showcase-top col-md-4 col-sm-4">
+			<div class="showcase-bottom col-md-3 col-sm-12">
 				<img width="100%"
 					src="https://images.assetsdelivery.com/compings_v2/wavebreakmediamicro/wavebreakmediamicro1507/wavebreakmediamicro150701194.jpg" />
 			</div>
-			<div class="col-md-8 col-sm-8">
-				<div class="showcase-right" style="text-align: center">
+			<div class="showcase-bottom col-md-1 col-sm-0"></div>
+			<div class="col-md-6 col-sm-12" >
+				<div class="showcase-right" style="text-align: center" >
 					<h2>Unabhängig und mobil</h2>
 					<p>
 						Eine gemütliche Tour durch die Stadt oder die Weinberge mit einem
 						City-;Trekking- oder Elektrofahrrad? Oder doch eine rasante Tour
 						durch den Wald mit einem Mountainbike?<br> In Ihrem BiZirkel
-						Biker-Shop finden Sie das perfekte Rad!<br> Sie haben die
-						Wahl aus verschiedensten Rädern. Egal ob einfache und gemütliche
-						Radreise mit unseren City-Bikes, oder herausfordernde Trails im
-						Pfälzer Wald, mit hochwertigen Hardtail und Mountainbikes, kommen
-						Sie überall hin. Die Bosch-Motoren der E-Bikes sorgen für einen
-						stetigen Rückenwind. Werfen Sie einen Blick in unsere große
-						Auswahl an Leihräder!
+						Biker-Shop finden Sie das perfekte Rad!
 					</p>
 				</div>
 			</div>
+			<div class="showcase-bottom col-md-1 col-sm-0"></div>
 		</div>
 		<hr />
 	</section>
