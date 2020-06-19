@@ -109,7 +109,6 @@
 
 
 <script>
-	
 	function clickMe() {
 		console.log("In check Form angekommen");
 		if (document.getElementById('hideTopPlaceSmall').style.display == "block") {

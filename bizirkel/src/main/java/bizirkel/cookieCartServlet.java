@@ -50,26 +50,6 @@ public class cookieCartServlet extends HttpServlet {
 			bike.setMaxAge(60 * 60 * 24);
 			response.addCookie(bike);
 		}
-
-//		String date = request.getParameter("date");
-//		String startdateString = "";
-//		String enddateString = "";
-//		Date startdate;
-//		Date enddate;
-//		if(date != null) {
-//			startdateString = date.substring(0, 10);
-//			enddateString = date.substring(10, 20);
-//			try {
-//				startdate = new SimpleDateFormat("yyyy/MM/dd").parse(startdateString);
-//				enddate = new SimpleDateFormat("yyyy/MM/dd").parse(enddateString);
-//			} catch (ParseException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			Cookie dateCookie = new Cookie("date", date);
-//			dateCookie.setMaxAge(60 * 60 * 24);
-//			response.addCookie(dateCookie);
-//		}
 		
 		String setCk = (String) request.getParameter("setCk");
 		request.getSession().setAttribute("decide", setCk);

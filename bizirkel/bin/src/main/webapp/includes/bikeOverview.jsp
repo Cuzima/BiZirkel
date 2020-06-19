@@ -330,7 +330,9 @@ input {
 
 					window.location.href = '/bikeOverview?date='
 							+ start.format('YYYY/MM/DD')
-							+ end.format('YYYY/MM/DD');
+							+ end.format('YYYY/MM/DD')
+							+ '&sortPrice='+$('#inputGroupSelect02').val()
+							+ '&filterEbike='+$('#inputGroupSelect01').val();
 				});
 	});
 

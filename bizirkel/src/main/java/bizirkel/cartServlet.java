@@ -44,7 +44,6 @@ public class cartServlet extends HttpServlet {
 		Cookie bikesCookie[] = request.getCookies();
 		DaoController dao = new DaoController();
 		ArrayList<Bike> bikes = null;
-		// Bike[] resultbikes = new Bike[10];
 		ArrayList<Bike> resultbikes = new ArrayList<Bike>();
 		String bikesids = "";
 		bikes = (ArrayList<Bike>) request.getSession().getAttribute("bikes");
@@ -71,9 +70,6 @@ public class cartServlet extends HttpServlet {
 						if (bikeid == bike.getId()) {
 							bike.setAmount(Integer.parseInt(bikeamount));
 							resultbikes.add(bike);
-//					for(int i = 0; i < resultbikes.length; i++) {
-//						resultbikes[i] = bike;	
-//					}
 						}
 					}
 				} catch (Exception e) {
@@ -82,8 +78,6 @@ public class cartServlet extends HttpServlet {
 			}
 		}
 
-//		startdateString = (String) DateHelper.getStartEndDate(dateString, bikesCookie)[2];
-//		enddateString = (String) DateHelper.getStartEndDate(dateString, bikesCookie)[3];
 		if (dateString != "") {
 			// 20/20/2020
 			startdateString = dateString.substring(0, 10);
@@ -115,14 +109,6 @@ public class cartServlet extends HttpServlet {
 		ArrayList<Bike> bikesafterres = new ArrayList<Bike>();
 		bikesafterres = bikes;
 		bikesafterres = BikeHelper.removeReservatedAmounts(bikesafterres, startdate, enddate, reservations);
-		
-//		for(Bike bike:bikesafterres) {
-//			for(Bike bikefinish:resultbikes) {
-//				if(bikefinish.getId() == bike.getId()) {
-//					bikefinish.setAmount(bike.getAmount());
-//				}
-//			}
-//		}
 		
 		int daysbetween = DateHelper.getDaysBetween(startdate, enddate);
 

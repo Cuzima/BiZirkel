@@ -180,7 +180,7 @@
 						<div class="clearfix"></div>
 						<h2>Toller Fahrradverleih!</h2>
 						<p>Letztes Wochenende konnte ich eine atemberaubende Fahrradtour durch die Trails von Heidelberg mit meinem Freund
-						machen. Außerdem trifft man im Shop auf freundliches Personal und die Bedienung der Webseite ist sehr simpel und leicht verständlich gehalten!
+						machen. Außerdem trifft man im Shop auf freundliches Personal. Des Weiteren ist die Bedienung der Webseite sehr simpel und leicht verständlich gehalten!
 						5 Sterne!</p>
 						<p>
 							<a class="float-right btn btn-outline-primary ml-2"> <i

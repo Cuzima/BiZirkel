@@ -111,10 +111,12 @@ input {
 		<c:choose>
 			<c:when test="${not empty startdate}">
 				<input type="text" name="daterange"
-					value="${startdate} - ${enddate}" style="width: 100%" />
+					value="${startdate} - ${enddate}"
+					style="width: 100%; cursor: pointer" />
 			</c:when>
 			<c:otherwise>
-				<input type="text" name="daterange" style="width: 100%" />
+				<input type="text" name="daterange"
+					style="width: 100%; cursor: pointer" />
 			</c:otherwise>
 		</c:choose>
 	</div>
@@ -226,7 +228,7 @@ input {
 
 
 
-<!-- Button -->
+<!-- Modal -->
 <div class="container">
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" role="dialog">
@@ -242,22 +244,22 @@ input {
 				<div class="modal-body">
 					<div class="row">
 						<div class="col col-6">
-						<button type="button" class="btn btn-default" data-dismiss="modal"
-						onclick="goToCart()">Zum Warenkorb</button>
-					<p></p>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Weiter
-						reservieren</button>
-						
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal" onclick="goToCart()">Zum Warenkorb</button>
+							<p></p>
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Weiter reservieren</button>
+
 						</div>
 						<div class="col col-6">
-						
-						<div class="spritespin" style="margin-left:auto"></div>
-						
+
+							<div class="spritespin" style="margin-left: auto"></div>
+
 						</div>
-					
-					
+
+
 					</div>
-					
+
 					<div class="progress" style="margin-top: 10px; margin-bottom: -5px">
 						<div
 							class="progress-bar progress-bar-striped progress-bar-animated"
@@ -272,10 +274,8 @@ input {
 	</div>
 
 </div>
-<script src="https://unpkg.com/spritespin@4.0.11/release/spritespin.js" type="text/javascript"></script>
-
-<!-- <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<script src="https://unpkg.com/spritespin@4.0.11/release/spritespin.js"
+	type="text/javascript"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -360,7 +360,9 @@ input {
 
 					window.location.href = '/bikeOverview?date='
 							+ start.format('YYYY/MM/DD')
-							+ end.format('YYYY/MM/DD');
+							+ end.format('YYYY/MM/DD')
+							+ '&sortPrice='+$('#inputGroupSelect02').val()
+							+ '&filterEbike='+$('#inputGroupSelect01').val();
 				});
 	});
 

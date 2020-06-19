@@ -12,46 +12,7 @@ import com.mysql.cj.api.jdbc.Statement;
 
 import objects.Bike;
 
-public class Dao {
-//	Connection con;
-//	java.sql.Statement stmt;
-//	ResultSet rs;
-//
-//	public ResultSet getResult(String query) throws InterruptedException {
-//
-//		while (con == null) {
-//			try {
-//				Class.forName("com.mysql.cj.jdbc.Driver");
-//				con = DriverManager.getConnection("jdbc:mysql://sql7.freemysqlhosting.net/sql7345136", "sql7345136",
-//						"CusQ4kjddU");
-//				System.out.println("Connected");
-//				stmt = con.createStatement();
-//				rs = stmt.executeQuery(query);
-//				
-//			} catch (Exception e) {
-//				Object lock = new Object();
-//				synchronized (lock) {
-//			        try {
-//			            lock.wait(1000);
-//			        } catch (Throwable e1) {
-//			            e1.printStackTrace();
-//			        }
-//			    }
-//			}
-//		}
-//		return rs;
-//
-//	}
-//
-//	public void closeTransaktion() throws SQLException {
-//		if (stmt != null)
-//			stmt.close();
-//		if (con != null)
-//			con.close();
-//		if (rs != null)
-//			rs.close();
-//	}
-	
+public class Dao {	
 	private static Dao dataSource = null;
     private ComboPooledDataSource comboPooledDataSource;
 

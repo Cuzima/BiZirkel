@@ -69,8 +69,6 @@ public class DateHelper {
 	}
 	
 	public static int getDaysBetween(java.util.Date startdate, java.util.Date enddate) {
-//		java.util.Date utilstartDate = new java.util.Date(startdate.getTime());
-//		java.util.Date utilendDate = new java.util.Date(enddate.getTime());
 		long diff = (enddate.getTime() - startdate.getTime()) / (1000*60*60*24) + 1;
 		return (int) diff;
 	}

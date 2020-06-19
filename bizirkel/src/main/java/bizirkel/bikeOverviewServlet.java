@@ -48,41 +48,42 @@ public class bikeOverviewServlet extends HttpServlet {
 
 		// get bikes from database
 		ArrayList<Bike> bikes = null;
-		// vielt wieder einkommentieren (unten)
-		// bikes = (ArrayList<Bike>) request.getSession().getAttribute("bikes");
 		try {
 			bikes = dao.getAllBikes();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		// sort bikes depending on the selected sort
-		String sortPrice = request.getParameter("sortPrice");
-		if (sortPrice != null)
-			bikes = BikeHelper.sortBikes(sortPrice, bikes);
-		request.getSession().setAttribute("bikes", bikes);
+		// sort bikes depending on the selected sort algorithm
+		if (bikes != null) {
+			String sortPrice = request.getParameter("sortPrice");
+			if (sortPrice != null)
+				bikes = BikeHelper.sortBikes(sortPrice, bikes);
+			request.getSession().setAttribute("bikes", bikes);
 
-		// filter e-bikes
-		String ebike = request.getParameter("filterEbike");
-		if (ebike != null && !ebike.equals("E-Bike / Non E-Bike...")) {
-			Boolean isEbike = Boolean.parseBoolean(ebike);
-			bikes = BikeHelper.filterEbikes(isEbike, bikes);
-		}
-
-		// set the filtered bikes to session
-		request.getSession().setAttribute("bikes", bikes);
-
-		// filter Bikes according to the selected category
-		String category = request.getParameter("category");
-		if (category == null) {
-			category = (String) request.getSession().getAttribute("category");
-			if (category == null) {
-				request.setAttribute("page", "rent");
-				request.getRequestDispatcher("index.jsp").forward(request, response);
+			// filter e-bikes
+			String ebike = request.getParameter("filterEbike");
+			if (ebike != null && !ebike.equals("E-Bike / Non E-Bike...")) {
+				Boolean isEbike = Boolean.parseBoolean(ebike);
+				bikes = BikeHelper.filterEbikes(isEbike, bikes);
 			}
+
+			// set the filtered bikes to session
+			request.getSession().setAttribute("bikes", bikes);
+
+			// filter Bikes according to the selected category
+			String category = request.getParameter("category");
+			if (category == null) {
+				category = (String) request.getSession().getAttribute("category");
+				if (category == null) {
+					request.setAttribute("page", "rent");
+					request.getRequestDispatcher("index.jsp").forward(request, response);
+				}
+			}
+			bikes = BikeHelper.getBikes(category, bikes);
+
+			request.getSession().setAttribute("category", category);
 		}
-		bikes = BikeHelper.getBikes(category, bikes);
-		request.getSession().setAttribute("category", category);
 
 		// reduce the amount of available bikes considering the reservations for choosen
 		String dateString = request.getParameter("date");
@@ -103,7 +104,6 @@ public class bikeOverviewServlet extends HttpServlet {
 		bikesafterres = bikes;
 		bikesafterres = BikeHelper.removeReservatedAmounts(bikesafterres, startdate, enddate, reservations);
 
-		//sendStuffToSession
 		request.setAttribute("startdate", DateHelper.changeDate(startdateString));
 		request.setAttribute("enddate", DateHelper.changeDate(enddateString));
 		request.getSession().setAttribute("bikesafterre", bikesafterres);
